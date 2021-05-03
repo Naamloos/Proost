@@ -1,0 +1,31 @@
+﻿@page
+@using Microsoft.Extensions.Primitives;
+@model FeestSpel.Pages.JoinModel
+@{
+    ViewData["Title"] = "Join Room";
+}
+
+@if (Request.Method == "POST" && Request.Form.TryGetValue("submit", out StringValues value))
+{
+    Request.Form.TryGetValue("roomcode", out StringValues roomcode);
+
+    <h1>Tja dit is dus de post page</h1>
+    // Hier een redirect denk ik dan
+    <p>Volgende room code mee gekregen via POST: @roomcode</p>
+}
+else
+{
+    <h1>Bestaand spel deelnemen</h1>
+    <p class="paddedtext">
+        Voer de room code hier in om mee te doen aan een bestaand spel.
+    </p>
+
+    <form method="post">
+        <input type="text" name="roomcode" />
+        <input type="submit" name="submit" title="Deelnemen" />
+    </form>
+}
+
+<p class="paddedtext">
+    <a href="~/">Terug naar home</a>
+</p>

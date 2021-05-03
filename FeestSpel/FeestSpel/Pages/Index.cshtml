@@ -4,7 +4,12 @@
     ViewData["Title"] = "Home page";
 }
 
+<img src="~/img/beer.png" alt="proost!" class="icon"/>
 <h1>Welkom!</h1>
-<p>
+<p class="paddedtext">
     Wil je mee doen aan een bestaand spel of wil je je eigen spel starten?
+</p>
+<p class="paddedtext">
+    <button onclick="window.location.href='/host'">Nieuw Spel</button>
+    <button onclick="window.location.href='/join'">Bestaand Spel</button>
 </p>

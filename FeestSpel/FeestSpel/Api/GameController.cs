@@ -25,6 +25,7 @@ namespace FeestSpel.Api
         }
 
         // POST /api/update
+        // Remember this should require the session's room key to match the room's key. else just ignore or something idk
         [HttpPost]
         [Route("update")]
         public void PostUpdate()

@@ -14,6 +14,9 @@ namespace FeestSpel.Entities
         /// </summary>
         public string HostKey { get; set; }
 
+        /// <summary>
+        /// index of selected pack
+        /// </summary>
         public int SelectedPack { get; set; }
     }
 }
