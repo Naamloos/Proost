@@ -5,6 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.WebSockets;
+using System.Text;
+using System.Threading;
+using System.Text.Json;
 
 namespace FeestSpel.Api
 {
@@ -30,16 +34,38 @@ namespace FeestSpel.Api
         [Route("update")]
         public void PostUpdate()
         {
-            
+
         }
 
-        // GET /api/update
+        // GET /api/ws
         [HttpGet]
-        [Route("update")]
-        public GameUpdate GetUpdate()
+        [Route("ws")]
+        public async Task GetUpdateAsync()
         {
-            // requests a state update. Might not actually be different from the previous state.
-            return new GameUpdate() { Text = manager.DependencyTest() };
+            if (HttpContext.WebSockets.IsWebSocketRequest)
+            {
+                // keeping it simple I guess
+                var ws = await HttpContext.WebSockets.AcceptWebSocketAsync();
+
+                while (ws.State != System.Net.WebSockets.WebSocketState.Closed && ws.State != System.Net.WebSockets.WebSocketState.CloseReceived)
+                {
+                    try
+                    {
+                        if (ws.State == WebSocketState.Open)
+                        {
+                            byte[] buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new GameUpdate() { Action = "text", Context = new Random().Next().ToString() }));
+                            await ws.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
+                        }
+                    }
+                    catch (Exception) { } // shhhhh
+
+                    await Task.Delay(1000);
+                }
+            }
+            else
+            {
+                HttpContext.Response.StatusCode = 500;
+            }
         }
     }
 }

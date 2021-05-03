@@ -1,12 +1,18 @@
 ﻿@page
+@using Microsoft.Extensions.Primitives 
 @inject GameManager manager
 @model FeestSpel.Pages.GameModel
 @{
     ViewData["Title"] = manager.DependencyTest();
 
+    if(HttpContext.Request.Query.TryGetValue("room", out StringValues roomcode))
+    {
+        // Our new room code!
+        HttpContext.Session.SetStringValue("room", roomcode);
+    }
 }
 
-<p class="hugetext">
+<p class="hugetext" id="mission">
     Bob en Klaas-Jan moeten steen-papier-schaar spelen. De verliezer neemt 5 slokken.
 </p>
 
@@ -22,3 +28,26 @@
             });
     </script>
 }
+
+<script>
+    var mission = document.getElementById("mission");
+
+    var ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/api/ws");
+
+    ws.onmessage = function (event)
+    {
+        var response = JSON.parse(event.data);
+
+        switch (response.Action) {
+            case "redirect":
+                window.location.href = response.Context;
+                break;
+
+            case "text":
+                mission.innerHTML = response.Context;
+
+            default:
+                break;
+        }
+    }
+</script>

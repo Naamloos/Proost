@@ -57,6 +57,8 @@ namespace FeestSpel
 
             app.UseStaticFiles();
 
+            app.UseWebSockets(new WebSocketOptions() { KeepAliveInterval = TimeSpan.FromSeconds(150) });
+
             app.UseRouting();
 
             app.UseAuthorization();
