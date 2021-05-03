@@ -1,0 +1,14 @@
+﻿@page
+@model InvalidateModel
+@{
+    ViewData["Title"] = "Invalidated Session";
+}
+
+<h1>Your session has been cleared.</h1>
+<p>Redirecting in 5 seconds...</p>
+
+<script>
+    setTimeout(function () {
+        window.location.href = '/';
+    }, 5000);
+</script>
