@@ -15,6 +15,12 @@
       "SubjectCount": 0,
       "TakesDrinks": "neemt {0} slokken.",
       "FinishesGlass": "drinkt zijn glas leeg."
+    },
+	{
+      "MissionText": "Drink als je ooit eens in de friendzone bent geraakt.",
+      "SubjectCount": 0,
+      "TakesDrinks": "De verliezer(s) neemt 3 slokken.",
+      "FinishesGlass": "De verliezer(s) drinkt zijn glas leeg."
     }
   ],
   "SubMissions": [
@@ -22,6 +28,11 @@
       "Activation": "{0} is nu duits! Hij of zij moet nu met een duits accent praten. Elke fout wordt bestraft met een slok.",
       "Deactivation": "{0} is niet duits meer. Hij of zijn hoeft niet meer met een duits accent te praten.",
       "SubjectCount": 1
-    }
+    },
+	{
+	  "Activation": "Een kabouter! Voor elke slok moet de denkbeeldige \"kabouter\" van je glas af getild worden. Na elke slok zet je hem terug.",
+	  "Deactivation": "De kaboutertjes zijn er vandoor gegaan.",
+	  "SubjectCount": 0
+	}
   ]
 }

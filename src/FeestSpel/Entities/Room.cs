@@ -115,8 +115,8 @@ namespace FeestSpel.Entities
         {
             foreach(var connection in connectionsInRoom)
             {
-                connection.cts.Cancel();
                 await connection.DisconnectAsync();
+                connection.cts.Cancel();
             }
 
             connectionsInRoom.Clear();
