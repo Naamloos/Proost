@@ -21,17 +21,19 @@ namespace FeestSpel
             cts = new CancellationTokenSource();
             this.rooms = new List<Room>();
             this.packs = new List<GamePack>();
+            string assemblypath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string packpath = Path.Combine(Path.GetDirectoryName(assemblypath), "packs");
 
             // we can just preload here, no worries lol
-            if (!Directory.Exists("packs"))
+            if (!Directory.Exists(packpath))
             {
-                Directory.CreateDirectory("packs");
-                var path = Path.Combine("packs", "default.json");
+                Directory.CreateDirectory(packpath);
+                var path = Path.Combine(packpath, "default.json");
                 File.Create(path).Close();
                 File.WriteAllText(path, JsonSerializer.Serialize(new GamePack(), typeof(GamePack), new JsonSerializerOptions() { WriteIndented = true }));
             }
 
-            var packs = Directory.GetFiles("packs").Where(x => x.EndsWith(".json"));
+            var packs = Directory.GetFiles(packpath).Where(x => x.EndsWith(".json"));
 
             foreach(var pack in packs)
             {
