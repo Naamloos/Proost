@@ -10,29 +10,76 @@
       "TakesDrinks": "De verliezer neemt {0} slokken.",
       "FinishesGlass": "De verliezer drinkt zijn glas leeg."
     },
-	{
+	  {
       "MissionText": "Iedereen met een piercing",
       "SubjectCount": 0,
       "TakesDrinks": "neemt {0} slokken.",
       "FinishesGlass": "drinkt zijn glas leeg."
     },
-	{
+	  {
       "MissionText": "Drink als je ooit eens in de friendzone bent geraakt.",
       "SubjectCount": 0,
       "TakesDrinks": "De verliezer(s) neemt 3 slokken.",
       "FinishesGlass": "De verliezer(s) drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} nemen samen een selfie en posten deze op social media.",
+      "SubjectCount": 2,
+      "TakesDrinks": "",
+      "FinishesGlass": ""
+    },
+    {
+      "MissionText": "Iedereen die een zwart shirt draagt",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} spelen steen-papier-schaar.",
+      "SubjectCount": 2,
+      "TakesDrinks": "De verliezer neemt {0} slokken.",
+      "FinishesGlass": "De verliezer drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Rokers die het niet gelukt zijn om te stoppen",
+      "SubjectCount": 0,
+      "TakesDrinks": "nemen {0} slokken.",
+      "FinishesGlass": "drinken hun glas leeg."
+    },
+    {
+      "MissionText": "{0}",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0}!",
+      "SubjectCount": 1,
+      "TakesDrinks": "jij mag {0} slokken nemen!",
+      "FinishesGlass": "drinkt je glas leeg!"
     }
   ],
-  "SubMissions": [
+  "SubMissions": 
+  [
     {
       "Activation": "{0} is nu duits! Hij of zij moet nu met een duits accent praten. Elke fout wordt bestraft met een slok.",
       "Deactivation": "{0} is niet duits meer. Hij of zijn hoeft niet meer met een duits accent te praten.",
       "SubjectCount": 1
     },
-	{
-	  "Activation": "Een kabouter! Voor elke slok moet de denkbeeldige \"kabouter\" van je glas af getild worden. Na elke slok zet je hem terug.",
-	  "Deactivation": "De kaboutertjes zijn er vandoor gegaan.",
-	  "SubjectCount": 0
-	}
+    {
+      "Activation": "Een kabouter! Voor elke slok moet de denkbeeldige \"kabouter\" van je glas af getild worden. Na elke slok zet je hem terug.",
+      "Deactivation": "De kaboutertjes zijn er vandoor gegaan.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} en {1} zijn nu drinkmaatjes! Als een van de twee een slok neemt, dan moet de ander ook een slok nemen.",
+      "Deactivation": "{0} en {1} zijn geen drinkmaatjes meer.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Bijnaam! {0} mag een bijnaam bedenken voor {1}. Als iemand {1} niet bij deze bijnaam noemt, moet hij of zij drinken.",
+      "Deactivation": "{1} heeft geen bijnaam meer. Thanks, {0}!",
+      "SubjectCount": 1
+    }
   ]
 }

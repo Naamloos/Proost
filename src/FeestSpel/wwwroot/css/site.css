@@ -74,9 +74,10 @@ a{
 }
 
 .hugetext {
-    font-size: 5vh;
-    margin: 20vh;
+    font-size: 5vw;
     text-shadow: 2px 2px #000000;
+	margin-left: 10vw;
+	margin-right: 10vw;
 }
 
 #hostform{
