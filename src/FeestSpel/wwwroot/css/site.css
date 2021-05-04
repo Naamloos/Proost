@@ -76,8 +76,7 @@ a{
 .hugetext {
     font-size: 5vh;
     margin: 20vh;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+    text-shadow: 2px 2px #000000;
 }
 
 #hostform{

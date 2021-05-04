@@ -37,7 +37,7 @@
 
 
 
-<script>
+        <script>
             // taken from https://css-tricks.com/snippets/javascript/random-hex-color/
             const setBg = () => {
                 const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -46,10 +46,19 @@
 
             var mission = document.getElementById("mission");
 
-                    var ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/api/ws");
+            var wspath = window.location.hostname + ":" + window.location.port + "/api/ws";
 
-                    ws.onmessage = function (event) {
-                    var response = JSON.parse(event.data);
+            if (location.protocol === 'https:') {
+                // page is secure
+                wspath = "wss://" + wspath;
+            } else {
+                wspath = "ws://" + wspath;
+            }
+
+            var ws = new WebSocket(wspath);
+
+            ws.onmessage = function (event) {
+                var response = JSON.parse(event.data);
 
                 switch (response.Action) {
                     case "redirect":
@@ -65,7 +74,7 @@
                         break;
                 }
 
-            ws.send("OK");
+                ws.send("OK");
             }
         </script>
     }
