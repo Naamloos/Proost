@@ -1,57 +1,72 @@
 ﻿@page
-@using Microsoft.Extensions.Primitives 
+@using Microsoft.Extensions.Primitives
 @inject GameManager manager
 @model FeestSpel.Pages.GameModel
 @{
     ViewData["Title"] = manager.DependencyTest();
 
-    if(HttpContext.Request.Query.TryGetValue("room", out StringValues roomcode))
+    var roomcode = HttpContext.Session.GetStringValue("roomcode");
+
+    if (manager.GetRoomByCode(roomcode) is null)
     {
-        // Our new room code!
-        HttpContext.Session.SetStringValue("room", roomcode);
+        HttpContext.Response.Redirect("/");
     }
-
-    bool isHost = manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey"));
-}
-
-<p class="hugetext" id="mission">
-    Bob en Klaas-Jan moeten steen-papier-schaar spelen. De verliezer neemt 5 slokken.
-</p>
-
-@if (isHost)
-{
-    <script>
-        window.addEventListener("click",
-            function ()
-            {
-                var req = new XMLHttpRequest();
-                req.open("POST", "/api/update");
-                req.send();
-            });
-    </script>
-}
-
-<script>
-    var mission = document.getElementById("mission");
-
-    var ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/api/ws");
-
-    ws.onmessage = function (event)
+    else
     {
-        var response = JSON.parse(event.data);
+        bool isHost = manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey"));
+        string hostText = "";
 
-        switch (response.Action) {
-            case "redirect":
-                window.location.href = response.Context;
-                break;
 
-            case "text":
-                mission.innerHTML = response.Context;
-
-            default:
-                break;
+        <p class="hugetext" id="mission">
+            .
+        </p>
+        @if (isHost)
+        {
+            <script>
+                window.addEventListener("click",
+                    function () {
+                        var req = new XMLHttpRequest();
+                        req.open("POST", "/api/update");
+                        req.send();
+                    });
+            </script>
+            hostText = "[ HOST ]";
         }
 
-        ws.send("OK");
+        <p id="roomcode">Room Code: @roomcode @hostText</p>
+
+
+
+<script>
+            // taken from https://css-tricks.com/snippets/javascript/random-hex-color/
+            const setBg = () => {
+                const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                document.body.style.backgroundColor = "#" + randomColor;
+            }
+
+            var mission = document.getElementById("mission");
+
+                    var ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/api/ws");
+
+                    ws.onmessage = function (event) {
+                    var response = JSON.parse(event.data);
+
+                switch (response.Action) {
+                    case "redirect":
+                        window.location.href = response.Context;
+                        break;
+
+                    case "text":
+                        mission.innerHTML = response.Context;
+                        setBg();
+                        break;
+
+                    default:
+                        break;
+                }
+
+            ws.send("OK");
+            }
+        </script>
     }
-</script>
+}

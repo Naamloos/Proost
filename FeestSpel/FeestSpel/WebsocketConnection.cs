@@ -14,7 +14,7 @@ namespace FeestSpel
     {
         private WebSocket websocket;
         private GameManager manager;
-        private CancellationTokenSource cts;
+        public CancellationTokenSource cts;
 
         public WebsocketConnection(WebSocket websocket, GameManager manager)
         {
@@ -28,12 +28,21 @@ namespace FeestSpel
             // register session to updater
             var room = manager.GetRoomByCode(roomCode);
 
+            await updateAsync("Loading...");
+
             if (room is null) // no such room kill connection
+            {
+                await updateAsync("No such room!");
+                await Task.Delay(TimeSpan.FromSeconds(3));
+                await disconnectAsync();
                 return;
+            }
 
-            room.CurrentText.Register(update);
+            room.AddConnection(this);
 
-            await update(room.CurrentText.GetValue());
+            room.CurrentText.Register(updateAsync);
+
+            await updateAsync(room.CurrentText.GetValue());
 
             while (true)
             {
@@ -53,10 +62,28 @@ namespace FeestSpel
             }
 
             cts.Cancel();
-            room.CurrentText.Unregister(update);
+            try
+            {
+                await disconnectAsync();
+            }
+            catch (Exception) { }
+
+            room.CurrentText.Unregister(updateAsync);
         }
 
-        private async Task update(string newvalue)
+        private async Task disconnectAsync()
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(
+                new GameUpdate()
+                {
+                    Action = "redirect",
+                    Context = "/"
+                }));
+
+            await websocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, cts.Token);
+        }
+
+        private async Task updateAsync(string newvalue)
         {
             byte[] buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(
                 new GameUpdate()

@@ -10,6 +10,8 @@ namespace FeestSpel.Entities
         public Difficulty Difficulty { get; set; }
 
         public List<string> Players { get; set; } = new List<string>();
+
+        public int MissionCount { get; set; } = 15;
     }
 
     public enum Difficulty

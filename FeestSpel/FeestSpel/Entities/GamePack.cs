@@ -18,11 +18,7 @@ namespace FeestSpel.Entities
         public List<Mission> Missions { get; set; } = 
             new List<Mission>() 
             { 
-                new Mission() 
-                {
-                    SubjectCount = 2, 
-                    MissionText = "{0} geeft een kusje aan {1} of beiden moeten hun glas leeg drinken." 
-                } 
+                new Mission()
             };
 
         public string BuildNewMissionString(GameSettings settings)
@@ -30,16 +26,41 @@ namespace FeestSpel.Entities
             var rng = new Random();
 
             var missionCount = Missions.Count();
-            var selectedMission = Missions.ElementAt(rng.Next(0, missionCount - 1));
+            var selectedMission = Missions.ElementAt(rng.Next(0, missionCount));
 
-            var maxSelection = settings.Players.Count() - (selectedMission.SubjectCount + 1);
+            var maxSelection = settings.Players.Count() - (selectedMission.SubjectCount - 1);
 
             // using ToList to get a NEW list without shuffling the original list.
             var players = settings.Players.ToList().OrderBy(x => rng.Next());
             // Get correct amount of random players, and shuffle selection
             var subjects = settings.Players.GetRange(rng.Next(0, maxSelection), selectedMission.SubjectCount).OrderBy(x => rng.Next());
 
-            return string.Format(selectedMission.MissionText, subjects.ToArray());
+            var consequence = "";
+
+            switch (settings.Difficulty)
+            {
+                default:
+                case Difficulty.Normal:
+                    if(rng.Next(0, 2) == 1)
+                    {
+                        consequence = selectedMission.FinishesGlass;
+                    }
+                    else
+                    {
+                        consequence = string.Format(selectedMission.TakesDrinks, rng.Next(1, 5));
+                    }
+                    break;
+
+                case Difficulty.Drunk:
+                    consequence = selectedMission.FinishesGlass;
+                    break;
+
+                case Difficulty.Sober:
+                    consequence = string.Format(selectedMission.TakesDrinks, rng.Next(2, 5));
+                    break;
+            }
+
+            return string.Format(selectedMission.MissionText, subjects.ToArray()) + " " + consequence;
         }
 
         public int GetMinimumPlayers()

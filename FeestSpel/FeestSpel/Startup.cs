@@ -24,7 +24,6 @@ namespace FeestSpel
         public void ConfigureServices(IServiceCollection services)
         {
             GameManager manager = new GameManager();
-            manager.Preload();
             manager.Start();
 
             services.AddSingleton<GameManager>(manager);
@@ -33,7 +32,7 @@ namespace FeestSpel
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(2);
+                options.IdleTimeout = TimeSpan.FromHours(5);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });

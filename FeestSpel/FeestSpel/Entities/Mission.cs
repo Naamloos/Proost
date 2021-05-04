@@ -7,8 +7,12 @@ namespace FeestSpel.Entities
 {
     public class Mission
     {
-        public string MissionText { get; set; }
+        public string MissionText { get; set; } = "{0} en {1} spelen steen-papier-schaar.";
 
-        public int SubjectCount { get; set; }
+        public int SubjectCount { get; set; } = 2;
+
+        public string TakesDrinks { get; set; } = "De verliezer neemt {0} slokken.";
+
+        public string FinishesGlass { get; set; } = "De verliezer drinkt zijn glas leeg.";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,16 @@ namespace FeestSpel
 
             if (value != null && value.Length > 0)
                 return Encoding.UTF8.GetString(value);
+
+            return "";
+        }
+
+        public static string GetStringValue(this IFormCollection form, string key)
+        {
+            form.TryGetValue(key, out StringValues value);
+
+            if (value.Count() > 0)
+                return value;
 
             return "";
         }

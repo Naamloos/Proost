@@ -1,0 +1,14 @@
+{
+  "Title": "Pack Template",
+  "Description": "Pack Template Description",
+  "Author": "Naamloos",
+  "AuthorUrl": "https://github.com/Naamloos/",
+  "Missions": [
+    {
+      "MissionText": "{0} en {1} spelen steen-papier-schaar.",
+      "SubjectCount": 2,
+      "TakesDrinks": "De verliezer neemt {0} slokken.",
+      "FinishesGlass": "De verliezer drinkt zijn glas leeg."
+    }
+  ]
+}

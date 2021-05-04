@@ -16,11 +16,6 @@ html, body
     color: white;
 }
 
-h1, h2, h3, h4, h5
-{
-    font-family: Nunito;
-}
-
 #container {
     height: 100%;
     width: 100%;
@@ -41,7 +36,7 @@ h1, h2, h3, h4, h5
     padding: 15px;
 }
 
-button
+button, .fancybtn
 {
     min-width: 150px;
     min-height: 50px;
@@ -58,7 +53,7 @@ button
     min-height: 25px;
 }
 
-button:hover
+button:hover, .fancybtn:hover
 {
     background-color: #777777;
     cursor: pointer;
@@ -78,7 +73,31 @@ a{
     font-size: 12px;
 }
 
-.hugetext{
+.hugetext {
     font-size: 5vh;
     margin: 20vh;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+#hostform{
+    width: 350px;
+    line-height: 25px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Nunito;
+}
+
+#radios{
+    text-align: left;
+}
+
+#roomcode {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    background-color: black;
+    padding: 3px;
+    border-radius: 5px;
 }
