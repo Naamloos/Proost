@@ -1,0 +1,20 @@
+{
+  "Title": "Standaard pack",
+  "Description": "Standaard vragenpakket",
+  "Author": "Naamloos",
+  "AuthorUrl": "https://github.com/Naamloos/",
+  "Missions": [
+    {
+      "MissionText": "{0} en {1} spelen steen-papier-schaar.",
+      "SubjectCount": 2,
+      "TakesDrinks": "De verliezer neemt {0} slokken.",
+      "FinishesGlass": "De verliezer drinkt zijn glas leeg."
+    },
+	{
+      "MissionText": "Iedereen met een piercing",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    }
+  ]
+}
