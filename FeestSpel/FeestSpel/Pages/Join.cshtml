@@ -9,9 +9,15 @@
 {
     Request.Form.TryGetValue("roomcode", out StringValues roomcode);
 
-    <h1>Tja dit is dus de post page</h1>
-    // Hier een redirect denk ik dan
-    <p>Volgende room code mee gekregen via POST: @roomcode</p>
+    if (string.IsNullOrEmpty(roomcode)) // Add validity check
+    {
+        <h1>Je room code is invalid...</h1>
+    }
+    else
+    {
+        HttpContext.Session.SetStringValue("roomcode", roomcode);
+        HttpContext.Response.Redirect("game");
+    }
 }
 else
 {
@@ -22,10 +28,10 @@ else
 
     <form method="post">
         <input type="text" name="roomcode" />
-        <input type="submit" name="submit" title="Deelnemen" />
+        <input type="submit" name="submit" value="Deelnemen"/>
     </form>
 }
 
 <p class="paddedtext">
-    <a href="~/">Terug naar home</a>
+    <a href="~/" class="backlink">Terug naar home</a>
 </p>

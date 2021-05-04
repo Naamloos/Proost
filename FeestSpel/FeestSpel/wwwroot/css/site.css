@@ -50,6 +50,12 @@ button
     border-style: ridge;
     border-color: #777777;
     color: white;
+    padding: 0 5px 0 5px;
+}
+
+.smallbutton {
+    min-width: 25px;
+    min-height: 25px;
 }
 
 button:hover
@@ -66,6 +72,10 @@ button:hover
 
 a{
     color: #FFFFFF;
+}
+
+.backlink{
+    font-size: 12px;
 }
 
 .hugetext{

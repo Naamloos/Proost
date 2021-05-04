@@ -10,13 +10,15 @@
         // Our new room code!
         HttpContext.Session.SetStringValue("room", roomcode);
     }
+
+    bool isHost = manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey"));
 }
 
 <p class="hugetext" id="mission">
     Bob en Klaas-Jan moeten steen-papier-schaar spelen. De verliezer neemt 5 slokken.
 </p>
 
-@if (true)
+@if (isHost)
 {
     <script>
         window.addEventListener("click",
@@ -49,5 +51,7 @@
             default:
                 break;
         }
+
+        ws.send("OK");
     }
 </script>

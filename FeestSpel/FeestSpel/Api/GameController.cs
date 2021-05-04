@@ -32,9 +32,20 @@ namespace FeestSpel.Api
         // Remember this should require the session's room key to match the room's key. else just ignore or something idk
         [HttpPost]
         [Route("update")]
-        public void PostUpdate()
+        public async Task PostUpdate()
         {
-
+            string roomcode = HttpContext.Session.GetStringValue("roomcode");
+            var room = manager.GetRoomByCode(roomcode);
+            string key = HttpContext.Session.GetStringValue("hostkey");
+            if (room != null && manager.CheckHost(roomcode, key))
+            {
+                // host sent a room update. now update.
+                await room.NextMission();
+            }
+            else
+            {
+                HttpContext.Response.StatusCode = 500;
+            }
         }
 
         // GET /api/ws
@@ -46,21 +57,21 @@ namespace FeestSpel.Api
             {
                 // keeping it simple I guess
                 var ws = await HttpContext.WebSockets.AcceptWebSocketAsync();
+                var roomcode = HttpContext.Session.GetStringValue("roomcode");
 
-                while (ws.State != System.Net.WebSockets.WebSocketState.Closed && ws.State != System.Net.WebSockets.WebSocketState.CloseReceived)
+                WebsocketConnection connection = new WebsocketConnection(ws, manager);
+                await connection.StartSession(roomcode);
+
+                _ = Task.Run(async () =>
                 {
                     try
                     {
-                        if (ws.State == WebSocketState.Open)
-                        {
-                            byte[] buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new GameUpdate() { Action = "text", Context = new Random().Next().ToString() }));
-                            await ws.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
-                        }
+                        await ws.CloseAsync(WebSocketCloseStatus.NormalClosure, null, new CancellationTokenSource(TimeSpan.FromSeconds(3)).Token);
+                    }catch(Exception)
+                    {
+                        // just offload a close request, silently catch if fails. no worries
                     }
-                    catch (Exception) { } // shhhhh
-
-                    await Task.Delay(1000);
-                }
+                });
             }
             else
             {

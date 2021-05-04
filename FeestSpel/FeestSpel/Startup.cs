@@ -33,7 +33,7 @@ namespace FeestSpel
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromSeconds(2);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });

@@ -30,10 +30,33 @@ namespace FeestSpel
 
         public string DependencyTest() => "dooot";
 
+        public Room GetRoomByCode(string code)
+        {
+            if(rooms.Any(x => x.RoomCode == code))
+            {
+                return rooms.First(x => x.RoomCode == code);
+            }
+
+            return null;
+        }
+
+        public bool CheckHost(string roomcode, string hostkey)
+        {
+            return rooms.First(x => x.RoomCode == roomcode).HostKey == hostkey;
+        }
+
         private async Task loop()
         {
             while(!cts.IsCancellationRequested)
             {
+                foreach(var r in rooms)
+                {
+                    if(DateTime.Now.Subtract(r.LastHostRequest).TotalMinutes > 10)
+                    {
+
+                    }
+                }
+
                 await Task.Delay(500);
             }
             // do cleanup

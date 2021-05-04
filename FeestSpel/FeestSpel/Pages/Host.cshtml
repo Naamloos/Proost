@@ -4,11 +4,35 @@
     ViewData["Title"] = "Create new";
 }
 
-<h1>We gaan een nieuw kamertje machen</h1>
+<h1>Spelers</h1>
+<p id="players" class="paddedtext">nog geen spelers...</p>
 <p class="paddedtext">
-    maja heb eigenlijk de logic nog niet echt dus laten we dat nog niet doen.
+    <button onclick="addPlayer()" class="smallbutton">+</button>
+    <input id="newplayer" type="text"/>
+    <button onclick="resetPlayers()" class="smallbutton"> Reset </button>
+</p>
+<p class="paddedtext">
+    <button>Start spel</button>
 </p>
 
 <p class="paddedtext">
-    <a href="~/">Terug naar home</a>
+    <a href="~/" class="backlink">Terug naar home</a>
 </p>
+
+<script>
+    var players = "";
+
+    function addPlayer() {
+        var playerinput = document.getElementById("newplayer");
+        if (playerinput.value.length > 0) {
+            players += playerinput.value.replace(";", ",") + ";"
+            document.getElementById("players").innerHTML = players;
+        }
+        playerinput.value = "";
+    }
+
+    function resetPlayers() {
+        players = "";
+        document.getElementById("players").innerHTML = "nog geen spelers...";
+    }
+</script>
