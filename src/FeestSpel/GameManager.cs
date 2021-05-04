@@ -35,7 +35,7 @@ namespace FeestSpel
 
             var packs = Directory.GetFiles(packpath).Where(x => x.EndsWith(".json"));
 
-            foreach(var pack in packs)
+            foreach (var pack in packs)
             {
                 this.packs.Add((GamePack)JsonSerializer.Deserialize(File.ReadAllText(pack), typeof(GamePack)));
             }
@@ -55,7 +55,7 @@ namespace FeestSpel
 
         public Room GetRoomByCode(string code)
         {
-            if(rooms.Any(x => x.RoomCode == code))
+            if (rooms.Any(x => x.RoomCode == code))
             {
                 return rooms.First(x => x.RoomCode == code);
             }
@@ -90,15 +90,22 @@ namespace FeestSpel
 
         private async Task loop()
         {
-            while(!cts.IsCancellationRequested)
+            while (!cts.IsCancellationRequested)
             {
-                foreach(var r in rooms)
+                List<Room> dead = new List<Room>();
+                foreach (var r in rooms)
                 {
-                    if(DateTime.Now.Subtract(r.LastHostRequest).TotalHours > 5)
+                    if (DateTime.Now.Subtract(r.LastHostRequest).TotalHours > 5)
                     {
                         await r.KillAsync();
+                        dead.Add(r);
+                    }
+                    else if (r.finished)
+                    {
+                        dead.Add(r);
                     }
                 }
+                rooms.RemoveAll(x => dead.Contains(x));
 
                 await Task.Delay(500);
             }

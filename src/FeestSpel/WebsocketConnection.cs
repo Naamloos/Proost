@@ -1,7 +1,5 @@
 ﻿using FeestSpel.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
@@ -34,7 +32,7 @@ namespace FeestSpel
             {
                 await updateAsync("No such room!");
                 await Task.Delay(TimeSpan.FromSeconds(3));
-                await disconnectAsync();
+                await DisconnectAsync();
                 return;
             }
 
@@ -64,14 +62,14 @@ namespace FeestSpel
             cts.Cancel();
             try
             {
-                await disconnectAsync();
+                await DisconnectAsync();
             }
             catch (Exception) { }
 
             room.CurrentText.Unregister(updateAsync);
         }
 
-        private async Task disconnectAsync()
+        public async Task DisconnectAsync()
         {
             byte[] buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(
                 new GameUpdate()

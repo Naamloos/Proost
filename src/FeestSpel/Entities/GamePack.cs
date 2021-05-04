@@ -15,11 +15,17 @@ namespace FeestSpel.Entities
 
         public string AuthorUrl { get; set; } = "https://github.com/Naamloos/";
 
-        public List<Mission> Missions { get; set; } = 
-            new List<Mission>() 
-            { 
-                new Mission()
-            };
+        public List<Mission> Missions { get; set; } = new List<Mission>() { new Mission() };
+
+        public List<SubMission> SubMissions { get; set; } = new List<SubMission>() { new SubMission() };
+
+        public SubMission GetNewSubMission()
+        {
+            if (SubMissions.Count() == 0)
+                return null;
+
+            return SubMissions.ElementAt(new Random().Next(0, SubMissions.Count()));
+        }
 
         public string BuildNewMissionString(GameSettings settings)
         {

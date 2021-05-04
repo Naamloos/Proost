@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -25,7 +26,13 @@ namespace FeestSpel.Entities
 
         public GameSettings Settings { get; set; }
 
+        public int MissionsPassed = 0;
+
+        public bool finished = false;
+
         private List<WebsocketConnection> connectionsInRoom { get; set; } = new List<WebsocketConnection>();
+
+        private List<ActiveSubMission> activeSubMissions { get; set; } = new List<ActiveSubMission>();
 
         public Room(string roomcode, string hostkey, GameSettings settings, GamePack pack, IPAddress CreatedAt)
         {
@@ -39,8 +46,64 @@ namespace FeestSpel.Entities
 
         public async Task NextMission()
         {
+            if (finished)
+                return;
+
+            MissionsPassed++;
+            if(MissionsPassed > Settings.MissionCount)
+            {
+                finished = true;
+                await CurrentText.SetValueAsync("Het spel is over! Bedankt voor het spelen.");
+                await Task.Delay(5000);
+                await KillAsync();
+                return;
+            }
             LastHostRequest = DateTime.Now;
-            await CurrentText.SetValueAsync(pack.BuildNewMissionString(Settings));
+
+            await nextAsync();
+        }
+
+        private async Task nextAsync()
+        {
+            var rng = new Random();
+
+            var missionstring = "Er ging iets goed mis. Hier staat geen opdracht.";
+
+            foreach(var sub in activeSubMissions)
+            {
+                sub.Duration--;
+            }
+
+            var subm = activeSubMissions.FirstOrDefault(x => x.Duration < 1);
+            if (subm != null)
+            {
+                // deactivate submission
+                missionstring = string.Format(subm.SubMission.Deactivation, subm.Players.ToArray());
+                activeSubMissions.Remove(subm);
+            }
+            else if(rng.Next(0, 8) == 1)
+            {
+                // activate new sub mission
+                var selectedSubMission = pack.GetNewSubMission();
+                var maxSelection = Settings.Players.Count() - (selectedSubMission.SubjectCount - 1);
+
+                // using ToList to get a NEW list without shuffling the original list.
+                var players = Settings.Players.ToList().OrderBy(x => rng.Next());
+                // Get correct amount of random players, and shuffle selection
+                var subjects = Settings.Players.GetRange(rng.Next(0, maxSelection), selectedSubMission.SubjectCount).OrderBy(x => rng.Next()).ToList();
+
+                var active = new ActiveSubMission(subjects, selectedSubMission, rng.Next(1, Settings.MissionCount - MissionsPassed));
+                activeSubMissions.Add(active);
+
+                missionstring = string.Format(selectedSubMission.Activation, subjects.ToArray());
+            }
+            else
+            {
+                // regular mission
+                missionstring = pack.BuildNewMissionString(Settings);
+            }
+
+            await CurrentText.SetValueAsync(missionstring);
         }
 
         public void AddConnection(WebsocketConnection connection)
@@ -53,6 +116,7 @@ namespace FeestSpel.Entities
             foreach(var connection in connectionsInRoom)
             {
                 connection.cts.Cancel();
+                await connection.DisconnectAsync();
             }
 
             connectionsInRoom.Clear();

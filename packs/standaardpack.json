@@ -16,5 +16,12 @@
       "TakesDrinks": "neemt {0} slokken.",
       "FinishesGlass": "drinkt zijn glas leeg."
     }
+  ],
+  "SubMissions": [
+    {
+      "Activation": "{0} is nu duits! Hij of zij moet nu met een duits accent praten. Elke fout wordt bestraft met een slok.",
+      "Deactivation": "{0} is niet duits meer. Hij of zijn hoeft niet meer met een duits accent te praten.",
+      "SubjectCount": 1
+    }
   ]
 }
