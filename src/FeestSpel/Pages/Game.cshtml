@@ -3,8 +3,6 @@
 @inject GameManager manager
 @model FeestSpel.Pages.GameModel
 @{
-    ViewData["Title"] = manager.DependencyTest();
-
     var roomcode = HttpContext.Session.GetStringValue("roomcode");
 
     if (HttpContext.Request.QueryString.HasValue)
@@ -19,6 +17,7 @@
     }
     else
     {
+        ViewData["Title"] = roomcode;
         bool isHost = manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey"));
         string hostText = "";
 
@@ -32,14 +31,27 @@
             hostText = "[ HOST ]";
         }
 
-        <p id="roomcode">Room Code: @roomcode <button class="smallbutton" onClick="copyRoomcodeToClipBoard()">&#128190;</button> @hostText</p>
+        <p id="roomcode">Code: @roomcode <button class="smallbutton" onClick="copyRoomcodeToClipBoard()">&#128190;</button></p>
         <input type="hidden" id="hiddenRoomCodeField" value="">
 
+        <script src="~/js/qrcode.min.js"></script>
+        <div id="qr"></div>
         <script>
+            var roomurl = location.protocol + '//' + location.host + location.pathname + "?@roomcode";
+
+            var qrcode = new QRCode(document.getElementById("qr"), {
+                text: roomurl,
+                width: 125,
+                height: 125,
+                colorDark: "#000000",
+                colorLight: "#FFFFFF",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
             //Copy the roomcode to the clipboard
             function copyRoomcodeToClipBoard() {
                 let roomcode = document.getElementById('hiddenRoomCodeField');
-                roomcode.value = location.protocol + '//' + location.host + location.pathname + "?@roomcode";
+                roomcode.value = roomurl;
                 roomcode.type = 'text'; //document.execCommand('copy') doesn't work on hidden items
                 roomcode.focus();
                 roomcode.select();

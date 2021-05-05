@@ -97,14 +97,44 @@ h1, h2, h3, h4, h5 {
     position: absolute;
     bottom: 25px;
     left: 25px;
-    background-color: black;
     padding: 3px;
+    color: black;
+    font-size: 23px;
+    line-height: 100%;
+
+    background-color: white;
     border-radius: 5px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
 }
 
 #cookietext {
     position: absolute;
     text-align: center;
     bottom: 20px;
-    left: 41%
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#qr
+{
+    width: 125px;
+    height: 125px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    padding: 10px;
+
+    background-color: white;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}
+
+@media (max-width: 1000px) {
+    #qr {
+        display: none;
+    }
 }
