@@ -99,10 +99,10 @@
 
 
     <script>
-        // taken from https://css-tricks.com/snippets/javascript/random-hex-color/
-        const setBg = () => {
-            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-            document.body.style.backgroundColor = "#" + randomColor;
+        var colors = ["#fcba03", "#03fc66", "#035afc", "#9003fc", "#fc0373", "#fc2003", "#03fcd3"];
+
+        function setBg() {
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         }
 
         setBg();
