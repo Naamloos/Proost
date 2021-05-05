@@ -7,6 +7,12 @@
 
     var roomcode = HttpContext.Session.GetStringValue("roomcode");
 
+    if (HttpContext.Request.QueryString.HasValue)
+    {
+        roomcode = HttpContext.Request.QueryString.Value.Substring(1);
+        HttpContext.Session.SetStringValue("roomcode", roomcode);
+    }
+
     if (manager.GetRoomByCode(roomcode) is null)
     {
         HttpContext.Response.Redirect("/");
@@ -27,12 +33,13 @@
         }
 
         <p id="roomcode">Room Code: @roomcode <button class="smallbutton" onClick="copyRoomcodeToClipBoard()">&#128190;</button> @hostText</p>
-        <input type="hidden" id="hiddenRoomCodeField" value="@roomcode">
+        <input type="hidden" id="hiddenRoomCodeField" value="">
 
         <script>
             //Copy the roomcode to the clipboard
             function copyRoomcodeToClipBoard() {
                 let roomcode = document.getElementById('hiddenRoomCodeField');
+                roomcode.value = location.protocol + '//' + location.host + location.pathname + "?@roomcode";
                 roomcode.type = 'text'; //document.execCommand('copy') doesn't work on hidden items
                 roomcode.focus();
                 roomcode.select();
