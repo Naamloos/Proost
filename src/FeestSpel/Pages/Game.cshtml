@@ -102,7 +102,9 @@
         var colors = ["#fcba03", "#03fc66", "#035afc", "#9003fc", "#fc0373", "#fc2003", "#03fcd3"];
 
         function setBg() {
-            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = color;
+            document.getElementById("headercolor").Content = color;
         }
 
         setBg();
