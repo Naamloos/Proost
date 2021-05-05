@@ -20,20 +20,45 @@
         <p class="hugetext" id="mission">
             .
         </p>
+
         @if (isHost)
         {
-            <script>
-                window.addEventListener("click",
-                    function () {
-                        var req = new XMLHttpRequest();
-                        req.open("POST", "/api/update");
-                        req.send();
-                    });
-            </script>
             hostText = "[ HOST ]";
         }
 
-        <p id="roomcode">Room Code: @roomcode @hostText</p>
+        <p id="roomcode">Room Code: @roomcode <button class="smallbutton" onClick="copyRoomcodeToClipBoard()">&#128190;</button> @hostText</p>
+        <input type="hidden" id="hiddenRoomCodeField" value="@roomcode">
+
+        <script>
+            //Copy the roomcode to the clipboard
+            function copyRoomcodeToClipBoard() {
+                let roomcode = document.getElementById('hiddenRoomCodeField');
+                roomcode.type = 'text'; //document.execCommand('copy') doesn't work on hidden items
+                roomcode.focus();
+                roomcode.select();
+                try {
+                    var successful = document.execCommand('copy');
+                    console.log('Copied roomcode succesfully');
+                } catch (err) {
+                    console.log('Copied roomcode unsuccesfully');
+                }
+                roomcode.type = 'hidden';
+            }
+        </script>
+
+        @if (isHost)
+        {
+            <script>
+                document.getElementById('container').addEventListener("click", function () {
+                    var req = new XMLHttpRequest();
+                    req.open("POST", "/api/update");
+                    req.send();
+                }, false);
+                document.getElementById('roomcode').addEventListener("click", function (ev) {
+                    ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
+                }, false);
+            </script>
+        }
 
 
 
