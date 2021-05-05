@@ -13,7 +13,7 @@
     var packName = form.GetStringValue("pack");
     var missionCount = form.GetStringValue("amount");
     var difficulty = form.GetStringValue("difficulty");
-    var players = form.GetStringValue("players").Split('\n').ToList();
+    var players = form.GetStringValue("players").Split(',').ToList();
 
     var pack = manager.GetPacks().FirstOrDefault(x => x.Title == packName);
     var diffs = Enum.GetNames(typeof(Difficulty));
@@ -75,36 +75,40 @@
 }
 else
 {
-    <h1>Instellingen</h1>
+    <h1>Nieuw Spel Starten</h1>
     <div id="hostform">
         <form method="post">
-            <h3>Spelers</h3>
-            <label>Onderscheiden per lijn (enter)</label>
-            <textarea name="players" rows="4" , cols="25"></textarea>
-            <h3>Pakket</h3>
-            <select name="pack">
-                @foreach (var pack in manager.GetPacks())
-                {
-                    <option value="@pack.Title">@pack.Title</option>
-                }
-            </select>
-            <br /><br />
-            <h3>Aantal opdrachten</h3>
-            <input type="number" value="15" name="amount" />
-            <br /><br />
-            <h3>Moeilijkheid</h3>
-            <div id="radios">
-                <input type="radio" name="difficulty" value="Sober" />
-                <label>Nuchter (Alleen slokjes)</label>
-                <br />
-                <input type="radio" name="difficulty" value="Normal" checked="checked" />
-                <label>Normaal (Willekeurig slokken of glas leeg)</label>
-                <br />
-                <input type="radio" name="difficulty" value="Drunk" />
-                <label>Dronken (Glas moet altijd leeg)</label>
+            <!-- Ja, I know. Dit is de lelijkste form die je ooit gezien hebt. Thanks. Maar front-facing deel is wel oke ;) -->
+            <label><b>Spelers (split met comma's)</b></label>
+            <input name="players" value="" />
+            <br />
+            <br />
+            <label><b>Moeilijkheid</b></label>
+            <div id="radiocontainer">
+                <div id="radios">
+                    <input type="radio" name="difficulty" value="Sober" />
+                    <label>Nuchter (Alleen slokjes)</label>
+                    <br />
+                    <input type="radio" name="difficulty" value="Normal" checked="checked" />
+                    <label>Normaal (Willekeurig)</label>
+                    <br />
+                    <input type="radio" name="difficulty" value="Drunk" />
+                    <label>Dronken (Glas moet altijd leeg)</label>
+                    <br /><br />
+                    <label><b>Pakket</b></label>
+                    <select name="pack">
+                        @foreach (var pack in manager.GetPacks())
+                        {
+                            <option value="@pack.Title">@pack.Title</option>
+                        }
+                    </select>
+                    <br />
+                    <label><b>Opdrachten</b></label>
+                    <input type="number" value="15" name="amount" />
+                </div>
             </div>
             <br />
-            <input type="submit" class="fancybtn" value="Start Spel" />
+            <input type="submit" class="fancybtn" value="Start" />
         </form>
     </div>
 }

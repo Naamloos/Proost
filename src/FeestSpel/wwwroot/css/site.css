@@ -1,8 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-*
-{
+* {
     padding: 0;
     margin: 0;
 }
@@ -25,27 +24,25 @@ html, body {
     align-items: center;
 }
 
-#contentbox
-{
+#contentbox {
     margin: auto;
     text-align: center;
 }
 
-.paddedtext, form
-{
-    padding: 15px;
+.paddedtext, form {
+    padding: 8px;
 }
 
-button, .fancybtn
-{
-    min-width: 150px;
-    min-height: 50px;
+button, .fancybtn {
+    min-width: 100px;
+    min-height: 35px;
     border-radius: 5px;
-    background-color: #555555;
-    border-style: ridge;
-    border-color: #777777;
-    color: white;
+    background-color: #edb248;
+    border-style: solid;
+    border-color: #f7eeba;
+    color: #151515;
     padding: 0 5px 0 5px;
+    margin: 0 5px 0 5px;
 }
 
 .smallbutton {
@@ -53,44 +50,49 @@ button, .fancybtn
     min-height: 25px;
 }
 
-button:hover, .fancybtn:hover
-{
-    background-color: #777777;
+button:hover, .fancybtn:hover {
+    background-color: #fbcf4c;
     cursor: pointer;
 }
 
-.icon
-{
+.icon {
     width: 50px;
     padding: 10px;
 }
 
-a{
-    color: #FFFFFF;
+a {
+    color: #BBBBBB;
 }
 
-.backlink{
+.backlink {
     font-size: 12px;
 }
 
 .hugetext {
     font-size: 5vw;
     text-shadow: 2px 2px #000000;
-	margin-left: 10vw;
-	margin-right: 10vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
-#hostform{
+#hostform {
     width: 350px;
     line-height: 25px;
 }
 
 h1, h2, h3, h4, h5 {
     font-family: Nunito;
+    padding-top: 3px;
 }
 
-#radios{
+#radiocontainer {
+    width: 100%;
+}
+
+#radios {
+    margin: auto;
     text-align: left;
+    display: inline-block;
 }
 
 #roomcode {
@@ -128,15 +130,13 @@ h1, h2, h3, h4, h5 {
     transform: translateX(-50%);
 }
 
-#qr
-{
+#qr {
     width: 125px;
     height: 125px;
     position: absolute;
     bottom: 25px;
     right: 25px;
     padding: 10px;
-
     background-color: white;
     border-radius: 5px;
     border-width: 2px;
