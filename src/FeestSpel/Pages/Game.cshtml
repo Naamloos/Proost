@@ -20,20 +20,28 @@
         <p class="hugetext" id="mission">
             .
         </p>
+
         @if (isHost)
         {
-            <script>
-                window.addEventListener("click",
-                    function () {
-                        var req = new XMLHttpRequest();
-                        req.open("POST", "/api/update");
-                        req.send();
-                    });
-            </script>
             hostText = "[ HOST ]";
         }
 
-        <p id="roomcode">Room Code: @roomcode @hostText</p>
+        //To-Do: make icon clickable so it copies roomcode to clipboard
+        <p id="roomcode">Room Code: @roomcode &#128190; @hostText</p>
+
+        @if (isHost)
+        {
+            <script>
+                document.getElementById('container').addEventListener("click", function () {
+                    var req = new XMLHttpRequest();
+                    req.open("POST", "/api/update");
+                    req.send();
+                }, false);
+                document.getElementById('roomcode').addEventListener("click", function (ev) {
+                    ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
+                }, false);
+            </script>
+        }
 
 
 
