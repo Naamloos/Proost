@@ -26,8 +26,25 @@
             hostText = "[ HOST ]";
         }
 
-        //To-Do: make icon clickable so it copies roomcode to clipboard
-        <p id="roomcode">Room Code: @roomcode &#128190; @hostText</p>
+        <p id="roomcode">Room Code: @roomcode <button class="smallbutton" onClick="copyRoomcodeToClipBoard()">&#128190;</button> @hostText</p>
+        <input type="hidden" id="hiddenRoomCodeField" value="@roomcode">
+
+        <script>
+            //Copy the roomcode to the clipboard
+            function copyRoomcodeToClipBoard() {
+                let roomcode = document.getElementById('hiddenRoomCodeField');
+                roomcode.type = 'text'; //document.execCommand('copy') doesn't work on hidden items
+                roomcode.focus();
+                roomcode.select();
+                try {
+                    var successful = document.execCommand('copy');
+                    console.log('Copied roomcode succesfully');
+                } catch (err) {
+                    console.log('Copied roomcode unsuccesfully');
+                }
+                roomcode.type = 'hidden';
+            }
+        </script>
 
         @if (isHost)
         {
