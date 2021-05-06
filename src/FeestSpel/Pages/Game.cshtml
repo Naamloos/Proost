@@ -26,12 +26,17 @@
             <p id="hosttag">Host Client</p>
         }
 
-        <p id="roomcode" onClick="copyRoomcodeToClipBoard()">Code: @roomcode <i class="fas fa-copy"></i></p>
+        <p id="roomcode" onClick="copyRoomcodeToClipBoard()"><i id="copyicon" class="fas fa-copy"></i> Code: @roomcode</p>
         <input type="hidden" id="hiddenRoomCodeField" value="">
 
         <script src="~/js/qrcode.min.js"></script>
         <div id="qr"></div>
         <script>
+            if (navigator.share)
+            {
+                document.getElementById("copyicon").className = "fas fa-share";
+            }
+
             var roomurl = location.protocol + '//' + location.host + location.pathname + "?@roomcode";
 
             var qrcode = new QRCode(document.getElementById("qr"), {
