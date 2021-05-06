@@ -87,7 +87,7 @@ namespace FeestSpel.Entities
                 missionstring = string.Format(subm.SubMission.Deactivation, subm.Players.ToArray());
                 activeSubMissions.Remove(subm);
             }
-            else if (rng.Next(0, 8) == 1)
+            else if (rng.Next(0, 8) == 1 && (Settings.MissionCount - MissionsPassed > 1))
             {
                 // activate new sub mission
                 var selectedSubMission = pack.GetNewSubMission(lastSubMission);
