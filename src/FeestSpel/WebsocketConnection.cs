@@ -30,9 +30,8 @@ namespace FeestSpel
 
             if (room is null) // no such room kill connection
             {
-                await updateAsync("No such room!");
-                await Task.Delay(TimeSpan.FromSeconds(3));
                 await DisconnectAsync();
+                cts.Cancel();
                 return;
             }
 
