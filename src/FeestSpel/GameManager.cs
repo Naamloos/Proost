@@ -95,7 +95,7 @@ namespace FeestSpel
                 List<Room> dead = new List<Room>();
                 foreach (var r in rooms)
                 {
-                    if (DateTime.Now.Subtract(r.LastHostRequest).TotalHours > 5)
+                    if (DateTime.Now.Subtract(r.LastHostRequest).TotalMinutes > 30)
                     {
                         await r.KillAsync();
                         dead.Add(r);
