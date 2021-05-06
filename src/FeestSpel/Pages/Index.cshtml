@@ -3,20 +3,28 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@inject GameManager manager;
 
 <h1>Welkom bij Proost!</h1>
 <p class="paddedtext">
     Drink met mate!
 </p>
+
 <p class="paddedtext">
     <button onclick="window.location.href='/host'">Nieuw Spel</button>
     <button onclick="window.location.href='/join'">Bestaand Spel</button>
     <br />
 </p>
+
+<p class="paddedtext">
+    Actieve games: @manager.GetRoomCount()
+</p>
+
 <p class="paddedtext">
     <small>[ OPEN BETA ]</small>
     <br />
 </p>
+
 <p class="paddedtext">
     <a href="https://github.com/Naamloos/FeestSpel"><img src="~/img/github.png" width="25" alt="[GH]" /></a>
     <br />
@@ -26,6 +34,7 @@
         </a>
     </small>
 </p>
+
 <p class="paddedtext" id="cookietext">
     Deze website gebruikt alleen essentiële cookies.
 </p>

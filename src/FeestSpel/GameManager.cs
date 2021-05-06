@@ -46,6 +46,11 @@ namespace FeestSpel
             return packs;
         }
 
+        public int GetRoomCount()
+        {
+            return this.rooms.Count(x => !x.finished);
+        }
+
         public void Start()
         {
             _ = Task.Run(async () => await loop());
