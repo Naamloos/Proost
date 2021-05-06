@@ -67,7 +67,8 @@ namespace FeestSpel.Api
                     try
                     {
                         await ws.CloseAsync(WebSocketCloseStatus.NormalClosure, null, new CancellationTokenSource(TimeSpan.FromSeconds(3)).Token);
-                    }catch(Exception)
+                    }
+                    catch (Exception)
                     {
                         // just offload a close request, silently catch if fails. no worries
                     }

@@ -19,24 +19,19 @@
     {
         ViewData["Title"] = roomcode;
         bool isHost = manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey"));
-        string hostText = "";
+        <p class="hugetext" id="mission"></p>
 
+        @if (isHost)
+        {
+            <p id="hosttag">Host Client</p>
+        }
 
-    <p class="hugetext" id="mission">
-        
-    </p>
+        <p id="roomcode" onClick="copyRoomcodeToClipBoard()">@roomcode (klik mij)</p>
+        <input type="hidden" id="hiddenRoomCodeField" value="">
 
-    @if (isHost)
-    {
-        <p id="hosttag">Host Client</p>
-    }
-
-    <p id="roomcode" onClick="copyRoomcodeToClipBoard()">@roomcode (klik mij)</p>
-    <input type="hidden" id="hiddenRoomCodeField" value="">
-
-    <script src="~/js/qrcode.min.js"></script>
-    <div id="qr"></div>
-    <script>
+        <script src="~/js/qrcode.min.js"></script>
+        <div id="qr"></div>
+        <script>
             var roomurl = location.protocol + '//' + location.host + location.pathname + "?@roomcode";
 
             var qrcode = new QRCode(document.getElementById("qr"), {
@@ -80,67 +75,67 @@
                 }
                 roomcode.type = 'hidden';
             }
-    </script>
+        </script>
 
-    @if (isHost)
+        @if (isHost)
         {
-    <script>
-        document.getElementById('container').addEventListener("click", function () {
-            var req = new XMLHttpRequest();
-            req.open("POST", "/api/update");
-            req.send();
-        }, false);
-        document.getElementById('roomcode').addEventListener("click", function (ev) {
-            ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
-        }, false);
-    </script>
+            <script>
+                document.getElementById('container').addEventListener("click", function () {
+                    var req = new XMLHttpRequest();
+                    req.open("POST", "/api/update");
+                    req.send();
+                }, false);
+                document.getElementById('roomcode').addEventListener("click", function (ev) {
+                    ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
+                }, false);
+            </script>
         }
 
 
 
-    <script>
-        var colors = ["#fcba03", "#03fc66", "#035afc", "#9003fc", "#fc0373", "#fc2003", "#03fcd3"];
+        <script>
+            var colors = ["#fcba03", "#03fc66", "#035afc", "#9003fc", "#fc0373", "#fc2003", "#03fcd3"];
 
-        function setBg() {
-            var color = colors[Math.floor(Math.random() * colors.length)];
-            document.body.style.backgroundColor = color;
-            document.getElementById("headercolor").content = color;
-        }
-
-        setBg();
-
-        var mission = document.getElementById("mission");
-
-        var wspath = window.location.hostname + ":" + window.location.port + "/api/ws";
-
-        if (location.protocol === 'https:') {
-            // page is secure
-            wspath = "wss://" + wspath;
-        } else {
-            wspath = "ws://" + wspath;
-        }
-
-        var ws = new WebSocket(wspath);
-
-        ws.onmessage = function (event) {
-            var response = JSON.parse(event.data);
-
-            switch (response.Action) {
-                case "redirect":
-                    window.location.href = response.Context;
-                    break;
-
-                case "text":
-                    mission.innerHTML = response.Context;
-                    setBg();
-                    break;
-
-                default:
-                    break;
+            function setBg() {
+                var color = colors[Math.floor(Math.random() * colors.length)];
+                document.body.style.backgroundColor = color;
+                document.getElementById("headercolor").content = color;
             }
 
-            ws.send("OK");
-        }
-    </script>
+            setBg();
+
+            var mission = document.getElementById("mission");
+
+            var wspath = window.location.hostname + ":" + window.location.port + "/api/ws";
+
+            if (location.protocol === 'https:') {
+                // page is secure
+                wspath = "wss://" + wspath;
+            } else {
+                wspath = "ws://" + wspath;
+            }
+
+            var ws = new WebSocket(wspath);
+
+            ws.onmessage = function (event) {
+                var response = JSON.parse(event.data);
+
+                switch (response.Action) {
+                    case "redirect":
+                        window.location.href = response.Context;
+                        break;
+
+                    case "text":
+                        mission.innerHTML = response.Context;
+                        setBg();
+                        break;
+
+                    default:
+                        break;
+                }
+
+                ws.send("OK");
+            }
+        </script>
     }
 }

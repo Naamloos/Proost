@@ -34,6 +34,10 @@ namespace FeestSpel.Entities
 
         private List<ActiveSubMission> activeSubMissions { get; set; } = new List<ActiveSubMission>();
 
+        private Mission lastMission { get; set; } = null;
+
+        private SubMission lastSubMission { get; set; } = null;
+
         public Room(string roomcode, string hostkey, GameSettings settings, GamePack pack, IPAddress CreatedAt)
         {
             this.RoomCode = roomcode;
@@ -41,7 +45,9 @@ namespace FeestSpel.Entities
             this.Settings = settings;
             this.pack = pack;
             this.CreatedAt = CreatedAt;
-            this.CurrentText = new AsyncObserver<string>(pack.BuildNewMissionString(settings));
+            var miss = pack.BuildNewMissionString(settings, null);
+            this.lastMission = miss.Item2;
+            this.CurrentText = new AsyncObserver<string>(miss.Item1);
         }
 
         public async Task NextMission()
@@ -50,7 +56,7 @@ namespace FeestSpel.Entities
                 return;
 
             MissionsPassed++;
-            if(MissionsPassed > Settings.MissionCount)
+            if (MissionsPassed > Settings.MissionCount)
             {
                 finished = true;
                 await CurrentText.SetValueAsync("Het spel is over! Bedankt voor het spelen.");
@@ -69,7 +75,7 @@ namespace FeestSpel.Entities
 
             var missionstring = "Er ging iets goed mis. Hier staat geen opdracht.";
 
-            foreach(var sub in activeSubMissions)
+            foreach (var sub in activeSubMissions)
             {
                 sub.Duration--;
             }
@@ -81,10 +87,11 @@ namespace FeestSpel.Entities
                 missionstring = string.Format(subm.SubMission.Deactivation, subm.Players.ToArray());
                 activeSubMissions.Remove(subm);
             }
-            else if(rng.Next(0, 8) == 1)
+            else if (rng.Next(0, 8) == 1)
             {
                 // activate new sub mission
-                var selectedSubMission = pack.GetNewSubMission();
+                var selectedSubMission = pack.GetNewSubMission(lastSubMission);
+                this.lastSubMission = selectedSubMission;
                 var maxSelection = Settings.Players.Count() - (selectedSubMission.SubjectCount - 1);
 
                 // using ToList to get a NEW list without shuffling the original list.
@@ -100,7 +107,9 @@ namespace FeestSpel.Entities
             else
             {
                 // regular mission
-                missionstring = pack.BuildNewMissionString(Settings);
+                var miss = pack.BuildNewMissionString(Settings, lastMission);
+                missionstring = miss.Item1;
+                lastMission = miss.Item2;
             }
 
             await CurrentText.SetValueAsync(missionstring);
@@ -113,7 +122,7 @@ namespace FeestSpel.Entities
 
         public async Task KillAsync()
         {
-            foreach(var connection in connectionsInRoom)
+            foreach (var connection in connectionsInRoom)
             {
                 await connection.DisconnectAsync();
                 connection.cts.Cancel();
@@ -126,7 +135,7 @@ namespace FeestSpel.Entities
         public static string GenerateCode()
         {
             string code = "";
-            for(int i = 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 code += bag[new Random().Next(0, bag.Length - 1)];
             }

@@ -13,7 +13,9 @@
     var packName = form.GetStringValue("pack");
     var missionCount = form.GetStringValue("amount");
     var difficulty = form.GetStringValue("difficulty");
-    var players = form.GetStringValue("players").Split(',').ToList();
+
+    var players = form.GetStringValue("players").Split(',')
+        .Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim()).ToList();
 
     var pack = manager.GetPacks().FirstOrDefault(x => x.Title == packName);
     var diffs = Enum.GetNames(typeof(Difficulty));
@@ -104,7 +106,7 @@ else
                     </select>
                     <br />
                     <label><b>Opdrachten</b></label>
-                    <input type="number" value="15" name="amount" />
+                    <input type="number" value="30" name="amount" />
                 </div>
             </div>
             <br />

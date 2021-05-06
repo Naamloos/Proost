@@ -8,6 +8,7 @@ namespace FeestSpel.Entities
     public class GameUpdate
     {
         public string Action { get; set; }
+
         public string Context { get; set; }
     }
 }

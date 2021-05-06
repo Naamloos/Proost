@@ -19,20 +19,28 @@ namespace FeestSpel.Entities
 
         public List<SubMission> SubMissions { get; set; } = new List<SubMission>() { new SubMission() };
 
-        public SubMission GetNewSubMission()
+        public SubMission GetNewSubMission(SubMission previous)
         {
             if (SubMissions.Count() == 0)
                 return null;
 
-            return SubMissions.ElementAt(new Random().Next(0, SubMissions.Count()));
+            var selection = SubMissions.ElementAt(new Random().Next(0, SubMissions.Count()));
+
+            if (selection != previous)
+                return selection;
+
+            return GetNewSubMission(previous);
         }
 
-        public string BuildNewMissionString(GameSettings settings)
+        public (string, Mission) BuildNewMissionString(GameSettings settings, Mission previous)
         {
             var rng = new Random();
 
             var missionCount = Missions.Count();
             var selectedMission = Missions.ElementAt(rng.Next(0, missionCount));
+
+            if (selectedMission == previous)
+                return BuildNewMissionString(settings, previous);
 
             var maxSelection = settings.Players.Count() - (selectedMission.SubjectCount - 1);
 
@@ -47,7 +55,7 @@ namespace FeestSpel.Entities
             {
                 default:
                 case Difficulty.Normal:
-                    if(rng.Next(0, 2) == 1)
+                    if (rng.Next(0, 2) == 1)
                     {
                         consequence = selectedMission.FinishesGlass;
                     }
@@ -66,7 +74,7 @@ namespace FeestSpel.Entities
                     break;
             }
 
-            return string.Format(selectedMission.MissionText, subjects.ToArray()) + " " + consequence;
+            return (string.Format(selectedMission.MissionText, subjects.ToArray()) + " " + consequence, selectedMission);
         }
 
         public int GetMinimumPlayers()
