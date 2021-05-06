@@ -5,12 +5,6 @@
   "AuthorUrl": "https://github.com/Naamloos/",
   "Missions": [
     {
-      "MissionText": "{0} en {1} spelen steen-papier-schaar.",
-      "SubjectCount": 2,
-      "TakesDrinks": "De verliezer neemt {0} slokken.",
-      "FinishesGlass": "De verliezer drinkt zijn glas leeg."
-    },
-	  {
       "MissionText": "Iedereen met een piercing",
       "SubjectCount": 0,
       "TakesDrinks": "neemt {0} slokken.",
@@ -19,8 +13,8 @@
 	  {
       "MissionText": "Drink als je ooit eens in de friendzone bent geraakt.",
       "SubjectCount": 0,
-      "TakesDrinks": "De verliezer(s) neemt 3 slokken.",
-      "FinishesGlass": "De verliezer(s) drinkt zijn glas leeg."
+      "TakesDrinks": "De verliezer(s) nemen {0} slokken.",
+      "FinishesGlass": "De verliezer(s) drinken hun glas leeg."
     },
     {
       "MissionText": "{0} en {1} nemen samen een selfie en posten deze op social media.",
@@ -41,12 +35,6 @@
       "FinishesGlass": "De verliezer drinkt zijn glas leeg."
     },
     {
-      "MissionText": "Rokers die het niet gelukt zijn om te stoppen",
-      "SubjectCount": 0,
-      "TakesDrinks": "nemen {0} slokken.",
-      "FinishesGlass": "drinken hun glas leeg."
-    },
-    {
       "MissionText": "{0}",
       "SubjectCount": 1,
       "TakesDrinks": "neemt {0} slokken.",
@@ -56,7 +44,79 @@
       "MissionText": "{0}!",
       "SubjectCount": 1,
       "TakesDrinks": "jij mag {0} slokken nemen!",
-      "FinishesGlass": "drinkt je glas leeg!"
+      "FinishesGlass": "jij drinkt je glas leeg!"
+    },
+    {
+      "MissionText": "{0} laat {1} een slok uit zijn of haar glas nemen, of drinkt zelf",
+      "SubjectCount": 2,
+      "TakesDrinks": "{0} slokken!",
+      "FinishesGlass": "het glas leeg!"
+    },
+    {
+      "MissionText": "{0} mag iemand kiezen om samen",
+      "SubjectCount": 1,
+      "TakesDrinks": "{0} slokken mee te nemen.",
+      "FinishesGlass": "hun glas mee leeg te drinken."
+    },
+    {
+      "MissionText": "{0} noemt een liedje. Als {1} het niet kan zingen dan",
+      "SubjectCount": 2,
+      "TakesDrinks": "moet hij of zij {0} slokken nemen!",
+      "FinishesGlass": "drinkt hij of zij het glas leeg!"
+    },
+    {
+      "MissionText": "{0} mag twee spelers kiezen die",
+      "SubjectCount": 1,
+      "TakesDrinks": "{0} slokken nemen.",
+      "FinishesGlass": "hun glas leeg drinken."
+    },
+    {
+      "MissionText": "Wijs allemaal tegelijk naar een willekeurig persoon. De meest gekozen speler",
+      "SubjectCount": 0,
+      "TakesDrinks": "moet {0} slokken nemen.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Alle vrijgezellen",
+      "SubjectCount": 0,
+      "TakesDrinks": "nemen {0} slokken!",
+      "FinishesGlass": "drinken hun glas leeg!"
+    },
+    {
+      "MissionText": "{0} is de barman! Iedereen drinkt zijn glas leeg en krijgt een nieuw drankje van {0}.",
+      "SubjectCount": 1,
+      "TakesDrinks": "",
+      "FinishesGlass": ""
+    },
+    {
+      "MissionText": "{0} bedenkt een getal van 1 tot 50. De persoon die er het verste van af zit",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Russion Roulette! {0} schenkt voor iedereen een shotglas water, maar in één glas zit sterke drank. {0} drinkt zelf niet.",
+      "SubjectCount": 1,
+      "TakesDrinks": "",
+      "FinishesGlass": ""
+    },
+    {
+      "MissionText": "Als het {0} lukt om zijn of haar glas zonder handen leeg te drinken dan",
+      "SubjectCount": 1,
+      "TakesDrinks": "mag hij of zij {0} slokken uitdelen.",
+      "FinishesGlass": "mag hij of zij iemand kiezen die zijn of haar glas leeg moet drinken."
+    },
+    {
+      "MissionText": "{0}, {1} en {2} proosten en drinken samen",
+      "SubjectCount": 3,
+      "TakesDrinks": "{0} slokken.",
+      "FinishesGlass": "hun glas leeg."
+    },
+    {
+      "MissionText": "",
+      "SubjectCount": 0,
+      "TakesDrinks": "Neem {0} slokken als je nog maagd bent.",
+      "FinishesGlass": "Drink je glas leeg als je nog maagd bent."
     }
   ],
   "SubMissions": 
@@ -74,12 +134,37 @@
     {
       "Activation": "{0} en {1} zijn nu drinkmaatjes! Als een van de twee een slok neemt, dan moet de ander ook een slok nemen.",
       "Deactivation": "{0} en {1} zijn geen drinkmaatjes meer.",
-      "SubjectCount": 1
+      "SubjectCount": 2
     },
     {
       "Activation": "Bijnaam! {0} mag een bijnaam bedenken voor {1}. Als iemand {1} niet bij deze bijnaam noemt, moet hij of zij drinken.",
       "Deactivation": "{1} heeft geen bijnaam meer. Thanks, {0}!",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} mag een regel verzinnen. Wie zich niet aan deze regel houdt drinkt zijn glas leeg.",
+      "Deactivation": "Een regel van {0} geldt niet meer!",
       "SubjectCount": 1
+    },
+    {
+      "Activation": "De drinkvloek... {0} neemt voor elke ronde een slok.",
+      "Deactivation": "De drinkvloek heeft geen effect meer op {0}!",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} is de quizmaster. Niemand mag {0}'s vragen beantwoorden, anders drink je je glas leeg.",
+      "Deactivation": "{0} is niet meer de quizmaster!",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Vanaf nu drinkt iedereen dubbel.",
+      "Deactivation": "Er hoeft niet meer dubbel gedronken te worden.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} en {1} drinken nu voor elkaar. Als {0} een slok moet nemen of zijn glas leeg moet drinken, dan moet {1} dat doen, en andersom.",
+      "Deactivation": "{1} en {0} hoeven niet meer samen te drinken.",
+      "SubjectCount": 2
     }
   ]
 }
