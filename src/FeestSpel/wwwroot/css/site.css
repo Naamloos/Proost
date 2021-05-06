@@ -73,6 +73,7 @@ a {
     text-shadow: 2px 2px #000000;
     margin-left: 10vw;
     margin-right: 10vw;
+    font-family: 'Balsamiq Sans'
 }
 
 #hostform {
@@ -101,7 +102,7 @@ h1, h2, h3, h4, h5 {
     left: 25px;
     padding: 3px;
     color: white;
-    font-size: 23px;
+    font-size: 18px;
     line-height: 100%;
     background-color: black;
     border-radius: 5px;
@@ -115,7 +116,7 @@ h1, h2, h3, h4, h5 {
     left: 25px;
     padding: 3px;
     color: white;
-    font-size: 23px;
+    font-size: 18px;
     line-height: 100%;
     background-color: black;
     border-radius: 5px;
@@ -144,7 +145,7 @@ h1, h2, h3, h4, h5 {
     border-style: solid;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     #qr {
         display: none;
     }
