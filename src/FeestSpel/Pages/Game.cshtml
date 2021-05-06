@@ -75,25 +75,7 @@
                 }
                 roomcode.type = 'hidden';
             }
-        </script>
 
-        @if (isHost)
-        {
-            <script>
-                document.getElementById('container').addEventListener("click", function () {
-                    var req = new XMLHttpRequest();
-                    req.open("POST", "/api/update");
-                    req.send();
-                }, false);
-                document.getElementById('roomcode').addEventListener("click", function (ev) {
-                    ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
-                }, false);
-            </script>
-        }
-
-
-
-        <script>
             var colors = ["#fcba03", "#03fc66", "#035afc", "#9003fc", "#fc0373", "#fc2003", "#03fcd3"];
 
             function setBg() {
@@ -137,5 +119,17 @@
                 ws.send("OK");
             }
         </script>
+        @if (isHost)
+        {
+            <script>
+                document.getElementById('container').addEventListener("click", function () {
+
+                    ws.send("++");
+                }, false);
+                document.getElementById('roomcode').addEventListener("click", function (ev) {
+                    ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
+                }, false);
+            </script>
+        }
     }
 }

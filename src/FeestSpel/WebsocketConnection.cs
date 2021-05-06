@@ -21,7 +21,7 @@ namespace FeestSpel
             this.cts = new CancellationTokenSource();
         }
 
-        public async Task StartSession(string roomCode)
+        public async Task StartSession(string roomCode, string hostKey)
         {
             // register session to updater
             var room = manager.GetRoomByCode(roomCode);
@@ -49,9 +49,11 @@ namespace FeestSpel
                     byte[] buffer = new byte[2];
                     var returnBuffer = new ArraySegment<byte>(buffer);
                     await websocket.ReceiveAsync(returnBuffer, cts.Token);
-
-                    // This will just throw when connection dies
-                    // hacky, but works.
+                    if (Encoding.UTF8.GetString(returnBuffer.Array) == "++")
+                    {
+                        if(room.HostKey == hostKey)
+                            await room.NextMission();
+                    }
                 }
                 catch (Exception ex)
                 {
