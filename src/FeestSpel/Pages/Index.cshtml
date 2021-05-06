@@ -16,6 +16,16 @@
     <br />
 </p>
 
+@if (manager.GetRoomByCode(HttpContext.Session.GetStringValue("roomcode")) != null)
+{
+    <p class="paddedtext">
+        Jouw vorige sessie is nog actief!
+    </p>
+    <p class="paddedtext">
+        <button onclick="window.location.href='/game'">Verder gaan.</button>
+    </p>
+}
+
 <p class="paddedtext">
     Actieve games: @manager.GetRoomCount()
 </p>

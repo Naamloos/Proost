@@ -67,6 +67,14 @@
 
         var key = Room.GenerateCode();
         var room = new Room(code, key, settings, pack, HttpContext.Connection.RemoteIpAddress);
+
+        var oldroom = manager.GetRoomByCode(HttpContext.Session.GetStringValue("roomcode"));
+        if(oldroom != null)
+        {
+            if (oldroom.HostKey == HttpContext.Session.GetStringValue("hostkey"))
+                _ = Task.Run(async () => await oldroom.KillAsync());
+        }
+
         HttpContext.Session.SetStringValue("roomcode", code);
         HttpContext.Session.SetStringValue("hostkey", key);
 
