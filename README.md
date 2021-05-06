@@ -1,7 +1,7 @@
 <img src="https://user-images.githubusercontent.com/12187179/117376019-93246a80-aed0-11eb-842b-815cf81572dd.png" width="100">
 
 # Proost
-Een open-source party drinking game.. Drink met mate(n)!
+Een open-source party drinking game. Drink met mate!
 
 ## Spelen
 Een "officieel" gehoste versie van Proost is beschikbaar op https://proost.app/
