@@ -1,7 +1,7 @@
 <img src="https://user-images.githubusercontent.com/12187179/117376019-93246a80-aed0-11eb-842b-815cf81572dd.png" width="100">
 
 # Proost
-Een open-source party drinking game.. Drink met mate(n)!
+Een open-source party drinking game. Drink met mate!
 
 ## Spelen
 Een "officieel" gehoste versie van Proost is beschikbaar op https://proost.app/
@@ -11,7 +11,7 @@ Om vragen toe te voegen aan een bestaand pakket kan je een pull request openen o
 
 Om een nieuw pakket aan te maken, bekijk het pack template in de [wiki](https://github.com/Naamloos/FeestSpel/wiki/Pack-Template).
 
-## Screenshots
+## Screenshots (7 mei 2021)
 <img width="600" src="https://user-images.githubusercontent.com/12187179/117376326-31b0cb80-aed1-11eb-8424-5c75dd3aa74a.png">
 <img width="600" src="https://user-images.githubusercontent.com/12187179/117376400-56a53e80-aed1-11eb-9d9c-b57315a8a311.png">
 <img width="600" src="https://user-images.githubusercontent.com/12187179/117376446-6d4b9580-aed1-11eb-8b21-fa3bf9e3458b.png">
