@@ -69,6 +69,7 @@ namespace FeestSpel
             catch (Exception) { }
 
             room.CurrentText.Unregister(updateAsync);
+            room.RemoveConnection(this);
         }
 
         public async Task DisconnectAsync()

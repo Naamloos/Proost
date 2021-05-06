@@ -119,6 +119,11 @@ namespace FeestSpel.Entities
         {
             this.connectionsInRoom.Add(connection);
         }
+        public void RemoveConnection(WebsocketConnection connection)
+        {
+            if (this.connectionsInRoom.Contains(connection))
+                this.connectionsInRoom.Remove(connection);
+        }
 
         public async Task KillAsync()
         {
