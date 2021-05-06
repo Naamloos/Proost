@@ -12,6 +12,13 @@
     var form = HttpContext.Request.Form;
     var packName = form.GetStringValue("pack");
     var missionCount = form.GetStringValue("amount");
+
+    if(missionCount == "69")
+    {
+        HttpContext.Response.Redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        return;
+    }
+
     var difficulty = form.GetStringValue("difficulty");
 
     var players = form.GetStringValue("players").Split(',')
