@@ -123,6 +123,13 @@ h1, h2, h3, h4, h5 {
     border-width: 2px;
 }
 
+#betatext
+{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
 #cookietext {
     position: absolute;
     text-align: center;
