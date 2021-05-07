@@ -1,0 +1,22 @@
+{
+  "Title": "Social Distancing Pack",
+  "Description": "Vragenpakket voor mensen die veilig thuis blijven",
+  "Author": "Naamloos",
+  "AuthorUrl": "https://github.com/Naamloos/",
+  "Missions": [
+    {
+      "MissionText": "Iedereen die het corona-virus heeft gehad",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    }
+  ],
+  "SubMissions": 
+  [
+    {
+      "Activation": "{0} mag vanaf nu elke ronde een slok uitdelen, tot anders aangegeven wordt.",
+      "Deactivation": "{0} mag geen slokken meer uitdelen.",
+      "SubjectCount": 1
+    }
+  ]
+}
