@@ -1,0 +1,28 @@
+{
+  "name": "Proost het drankspel",
+  "short_name": "Proost!",
+  "orientation": "portrait",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/logox192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logox512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/maskablex192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "color": "#ffffff",
+  "background_color": "#20c4f4",
+  "theme_color": "#20c4f4"
+}

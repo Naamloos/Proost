@@ -1,0 +1,15 @@
+﻿@page
+@model OfflineModel
+@{
+    ViewData["Title"] = "Offline!";
+}
+
+<h1>Je bent offline!</h1>
+<h2>Controleer je verbinding en herlaad de pagina</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}

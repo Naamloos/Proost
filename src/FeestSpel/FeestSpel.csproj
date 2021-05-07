@@ -8,4 +8,8 @@
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.65" />
+  </ItemGroup>
+
 </Project>
