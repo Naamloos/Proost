@@ -13,9 +13,14 @@
     var packName = form.GetStringValue("pack");
     var missionCount = form.GetStringValue("amount");
 
-    if(missionCount == "69")
+    if (missionCount == "69")
     {
         HttpContext.Response.Redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        return;
+    }
+    if (missionCount == "420")
+    {
+        HttpContext.Response.Redirect("https://www.youtube.com/watch?v=yPYZpwSpKmA");
         return;
     }
 
@@ -23,6 +28,17 @@
 
     var players = form.GetStringValue("players").Split(',')
         .Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim()).ToList();
+
+    if (players.Contains("dababy"))
+    {
+        HttpContext.Response.Redirect("https://www.youtube.com/watch?v=w1PRiHEHJd8");
+        return;
+    }
+    if (players.Contains("sus") || players.Contains("amogus") || players.Contains("amongus"))
+    {
+        HttpContext.Response.Redirect("https://www.youtube.com/watch?v=KWtwIf-TSlo");
+        return;
+    }
 
     var pack = manager.GetPacks().FirstOrDefault(x => x.Title == packName);
     var diffs = Enum.GetNames(typeof(Difficulty));
@@ -76,7 +92,7 @@
         var room = new Room(code, key, settings, pack, HttpContext.Connection.RemoteIpAddress);
 
         var oldroom = manager.GetRoomByCode(HttpContext.Session.GetStringValue("roomcode"));
-        if(oldroom != null)
+        if (oldroom != null)
         {
             if (oldroom.HostKey == HttpContext.Session.GetStringValue("hostkey"))
                 _ = Task.Run(async () => await oldroom.KillAsync());
