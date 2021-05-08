@@ -1,7 +1,7 @@
 {
-  "name": "Proost het drankspel",
+  "name": "Proost!",
   "short_name": "Proost!",
-  "orientation": "portrait",
+  "orientation": "any",
   "display": "standalone",
   "icons": [
     {
@@ -22,7 +22,7 @@
     }
   ],
   "start_url": "/",
-  "color": "#ffffff",
-  "background_color": "#20c4f4",
-  "theme_color": "#20c4f4"
+  "color": "#FFFFFF",
+  "background_color": "#151515",
+  "theme_color": "#151515"
 }
