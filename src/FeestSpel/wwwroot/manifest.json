@@ -5,17 +5,17 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "images/logox192.png",
+      "src": "img/logox192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/logox512.png",
+      "src": "img/logox512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "images/maskablex192.png",
+      "src": "img/maskablex192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
