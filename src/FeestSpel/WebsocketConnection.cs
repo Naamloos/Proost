@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace FeestSpel
 {
@@ -77,7 +78,7 @@ namespace FeestSpel
                 new GameUpdate()
                 {
                     Action = "redirect",
-                    Context = "/"
+                    Context = HttpUtility.HtmlEncode("/")
                 }));
 
             await websocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, cts.Token);
@@ -89,7 +90,7 @@ namespace FeestSpel
                 new GameUpdate()
                 {
                     Action = "text",
-                    Context = newvalue
+                    Context = HttpUtility.HtmlEncode(newvalue)
                 }));
 
             await websocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, cts.Token);
