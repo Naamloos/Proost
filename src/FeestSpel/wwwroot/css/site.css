@@ -64,6 +64,12 @@ a {
     color: #BBBBBB;
 }
 
+a.social
+{
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
 .backlink {
     font-size: 12px;
 }
