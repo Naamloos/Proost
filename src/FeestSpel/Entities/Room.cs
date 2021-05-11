@@ -133,8 +133,9 @@ namespace FeestSpel.Entities
                 await connection.DisconnectAsync();
                 connection.cts.Cancel();
             }
-
             connectionsInRoom.Clear();
+
+            this.finished = true;
         }
 
         const string bag = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
