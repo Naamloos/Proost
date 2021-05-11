@@ -79,6 +79,10 @@
     {
         <h1>Er zijn al te veel geopende kamers op jouw IP!</h1>
     }
+    else if (missionCountInt > 50 || missionCountInt < 1) 
+    {
+        <h1>Opdrachten-aantal moet tussen 1 en 50 zijn!</h1>
+    }
     else
     {
         var settings = new GameSettings()
