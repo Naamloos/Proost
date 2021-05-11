@@ -26,8 +26,7 @@
 
     var difficulty = form.GetStringValue("difficulty");
 
-    var players = form.GetStringValue("players").Split(',')
-        .Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim()).ToList();
+    var players = form.GetPlayers().Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim()).ToList();
 
     if (players.Contains("dababy"))
     {
@@ -116,8 +115,13 @@ else
     <div id="hostform">
         <form method="post">
             <!-- Ja, I know. Dit is de lelijkste form die je ooit gezien hebt. Thanks. Maar front-facing deel is wel oke ;) -->
-            <label><b>Spelers (split met comma's)</b></label>
-            <input name="players" value="" />
+            <label><b>Spelers</b></label>
+            <br />
+            <button type="button" class="smallbutton" onclick="addPlayer()"><i class="fas fa-plus"></i></button>
+            <button type="button" class="smallbutton" onclick="removeLast()"><i class="fas fa-trash"></i></button>
+            <button type="button" class="smallbutton" onclick="clearPlayers()"><i class="fas fa-undo"></i></button>
+            <div id="playerlist">
+            </div>
             <br />
             <br />
             <label><b>Moeilijkheid</b></label>
@@ -136,7 +140,7 @@ else
                     <select name="pack">
                         @foreach (var pack in manager.GetPacks())
                         {
-                            <option value="@pack.Title">@pack.Title</option>
+                        <option value="@pack.Title">@pack.Title</option>
                         }
                     </select>
                     <br />
@@ -147,6 +151,45 @@ else
             <br />
             <input type="submit" class="fancybtn" value="Start" />
         </form>
+
+        <script>
+            var players = 3;
+            var playerlist = document.getElementById("playerlist");
+
+            function addPlayer() {
+                if (players >= 100) {
+                    alert("Speler limiet bereikt.");
+                    return;
+                }
+                players++;
+
+                var newnode = document.createElement("input");
+                newnode.value = "";
+                newnode.name = "player" + players;
+                newnode.placeholder = "Speler " + players + "...";
+                newnode.autocomplete = "off";
+                playerlist.appendChild(newnode)
+            }
+
+            function clearPlayers() {
+                players = 0;
+                playerlist.innerHTML = "";
+
+                for (var i = 0; i < 3; i++) {
+                    addPlayer();
+                }
+            }
+
+            function removeLast() {
+                if (players < 4)
+                    return;
+                players--;
+                var lastchild = playerlist.children[playerlist.children.length - 1];
+                playerlist.removeChild(lastchild);
+            }
+
+            clearPlayers();
+        </script>
     </div>
 }
 

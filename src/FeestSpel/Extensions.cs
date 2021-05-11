@@ -31,6 +31,11 @@ namespace FeestSpel
             return "";
         }
 
+        public static List<string> GetPlayers(this IFormCollection form)
+        {
+            return form.Keys.Where(x => x.StartsWith("player")).Select(x => form.GetStringValue(x)).ToList();
+        }
+
         public static void SetStringValue(this ISession session, string key, string value)
         {
             session.Set(key, Encoding.UTF8.GetBytes(value));
