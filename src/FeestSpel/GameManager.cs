@@ -51,6 +51,11 @@ namespace FeestSpel
             return this.rooms.Count(x => !x.finished);
         }
 
+        public int GetClientCount()
+        {
+            return this.rooms.Select(x => x.GetConnectionCount()).Sum();
+        }
+
         public void Start()
         {
             _ = Task.Run(async () => await loop());

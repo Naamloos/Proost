@@ -50,6 +50,11 @@ namespace FeestSpel.Entities
             this.CurrentText = new AsyncObserver<string>(miss.Item1);
         }
 
+        public int GetConnectionCount()
+        {
+            return this.connectionsInRoom.Count();
+        }
+
         public async Task NextMission()
         {
             if (finished)
