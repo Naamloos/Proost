@@ -27,6 +27,13 @@ namespace FeestSpel
             manager.Start();
 
             services.AddSingleton<GameManager>(manager);
+
+            services.AddWebOptimizer(pipeline =>
+            {
+                pipeline.MinifyJsFiles("**/*.js");
+                pipeline.MinifyCssFiles("**/*.css");
+            });
+
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
 
@@ -54,6 +61,8 @@ namespace FeestSpel
             }
 
             app.UseSession();
+
+            app.UseWebOptimizer();
 
             app.UseStaticFiles();
 
