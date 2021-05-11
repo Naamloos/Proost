@@ -2,13 +2,14 @@
 @model InvalidateModel
 @{
     ViewData["Title"] = "Invalidated Session";
+    double redirectDelay = 3;
 }
 
 <h1>Je spel is voorbij!</h1>
-<p>Je wordt terug gestuurd naar de home page in 5 seconden...</p>
+<p>Je wordt terug gestuurd naar de home page in @redirectDelay seconden...</p>
 
 <script>
     setTimeout(function () {
         window.location.href = '/';
-    }, 5000);
+    }, @(redirectDelay * 1000));
 </script>

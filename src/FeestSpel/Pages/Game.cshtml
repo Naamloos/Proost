@@ -24,6 +24,7 @@
         @if (isHost)
         {
             <p id="hosttag">Host Client</p>
+            <p id="stoptag" onclick="stopRoom()"><i class="fas fa-times-circle"></i></p>
         }
 
         <p id="roomcode" onClick="copyRoomcodeToClipBoard()"><i id="copyicon" class="fas fa-copy"></i> Code: @roomcode</p>
@@ -134,6 +135,10 @@
                 document.getElementById('roomcode').addEventListener("click", function (ev) {
                     ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
                 }, false);
+                document.getElementById('stoptag').addEventListener("click", function (ev) {
+                    ev.stopPropagation();
+                    ws.send("xx");
+                }, false)
             </script>
         }
     }

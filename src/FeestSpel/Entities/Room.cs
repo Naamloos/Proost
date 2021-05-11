@@ -129,6 +129,7 @@ namespace FeestSpel.Entities
         {
             foreach (var connection in connectionsInRoom)
             {
+                await connection.UpdateAsync("Game gesloten door host.");
                 await connection.DisconnectAsync();
                 connection.cts.Cancel();
             }

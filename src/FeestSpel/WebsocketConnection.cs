@@ -27,7 +27,7 @@ namespace FeestSpel
             // register session to updater
             var room = manager.GetRoomByCode(roomCode);
 
-            await updateAsync("Loading...");
+            await UpdateAsync("Loading...");
 
             if (room is null) // no such room kill connection
             {
@@ -38,9 +38,9 @@ namespace FeestSpel
 
             room.AddConnection(this);
 
-            room.CurrentText.Register(updateAsync);
+            room.CurrentText.Register(UpdateAsync);
 
-            await updateAsync(room.CurrentText.GetValue());
+            await UpdateAsync(room.CurrentText.GetValue());
 
             while (true)
             {
@@ -49,11 +49,23 @@ namespace FeestSpel
                     byte[] buffer = new byte[2];
                     var returnBuffer = new ArraySegment<byte>(buffer);
                     await websocket.ReceiveAsync(returnBuffer, cts.Token);
-                    if (Encoding.UTF8.GetString(returnBuffer.Array) == "++")
-                    {
-                        if(room.HostKey == hostKey)
-                            await room.NextMission();
-                    }
+
+                    var cmd = Encoding.UTF8.GetString(returnBuffer.Array);
+
+                    if (room.HostKey == hostKey)
+                        switch (cmd)
+                        {
+                            case "++":
+                                // next page command
+                                await room.NextMission();
+                                break;
+                            case "xx":
+                                // exit command
+                                await room.KillAsync();
+                                break;
+                            default:
+                                break;
+                        }
                 }
                 catch (Exception ex)
                 {
@@ -68,7 +80,7 @@ namespace FeestSpel
             }
             catch (Exception) { }
 
-            room.CurrentText.Unregister(updateAsync);
+            room.CurrentText.Unregister(UpdateAsync);
             room.RemoveConnection(this);
         }
 
@@ -78,13 +90,13 @@ namespace FeestSpel
                 new GameUpdate()
                 {
                     Action = "redirect",
-                    Context = HttpUtility.HtmlEncode("/")
+                    Context = HttpUtility.HtmlEncode("/invalidate")
                 }));
 
             await websocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, cts.Token);
         }
 
-        private async Task updateAsync(string newvalue)
+        public async Task UpdateAsync(string newvalue)
         {
             byte[] buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(
                 new GameUpdate()
