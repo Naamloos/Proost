@@ -51,6 +51,7 @@ window.onload = function () {
         if (msg.type === 'newtext') {
             window.messageBus.send(e.senderId, 'received msg');
             setNewText(msg.text);
+            setBg();
         }
     };
 
