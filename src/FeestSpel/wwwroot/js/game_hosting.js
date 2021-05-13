@@ -4,6 +4,10 @@ document.getElementById('roomcode').addEventListener("click", function (ev) {
     ev.stopPropagation(); //stops element from being clickable, thanks to https://stackoverflow.com/a/33657471
 }, false);
 
+document.getElementById('castbutton').addEventListener("click", function (ev) {
+    ev.stopPropagation();
+}, false);
+
 document.getElementById('stoptag').addEventListener("click", function () { StopGame(); }, false);
 
 var keydown = false;

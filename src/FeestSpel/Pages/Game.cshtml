@@ -21,7 +21,7 @@
         bool isHost = manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey"));
         <p class="hugetext" id="mission"></p>
 
-        <button onclick="sendCast()">Cast (BETA)</button>
+        <p id="castbutton" onclick="sendCast()"><i class="fab fa-chromecast"></i></p>
 
         @if (isHost)
         {
