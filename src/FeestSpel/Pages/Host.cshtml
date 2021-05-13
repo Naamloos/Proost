@@ -78,7 +78,7 @@
     {
         <h1>Er zijn al te veel geopende kamers op jouw IP!</h1>
     }
-    else if (missionCountInt > 50 || missionCountInt < 1) 
+    else if (missionCountInt > 50 || missionCountInt < 1)
     {
         <h1>Opdrachten-aantal moet tussen 1 en 50 zijn!</h1>
     }
@@ -140,7 +140,7 @@ else
                     <select name="pack">
                         @foreach (var pack in manager.GetPacks())
                         {
-                        <option value="@pack.Title">@pack.Title</option>
+                            <option value="@pack.Title">@pack.Title</option>
                         }
                     </select>
                     <br />
@@ -151,11 +151,14 @@ else
             <br />
             <input type="submit" class="fancybtn" value="Start" />
         </form>
-
-        <script src="~/js/host.js"></script>
     </div>
 }
 
 <p class="paddedtext">
     <a href="~/" class="backlink">Terug naar home</a>
 </p>
+
+@section Scripts
+{
+    <script src="~/js/host.js"></script>
+}

@@ -32,14 +32,18 @@
         <p id="roomcode" onClick="copyRoomcodeToClipBoard()"><i id="copyicon" class="fas fa-copy"></i> Code: @roomcode</p>
         <input type="hidden" id="hiddenRoomCodeField" value="">
 
-        <script src="~/js/qrcode.min.js"></script>
         <div id="qr"></div>
-        <script>var roomcode = "@roomcode";</script>
-        <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
-        <script src="~/js/game.js"></script>
-        @if (isHost)
-        {
-            <script src="~/js/game_hosting.js"></script>
-        }
+    }
+}
+
+@section Scripts
+{
+    <script src="~/js/qrcode.min.js"></script>
+    <script>var roomcode = "@roomcode";</script>
+    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+    <script src="~/js/game.js"></script>
+    @if (manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey")))
+    {
+        <script src="~/js/game_hosting.js"></script>
     }
 }
