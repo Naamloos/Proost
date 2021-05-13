@@ -1,0 +1,21 @@
+﻿@page
+@model FeestSpel.Pages.CastModel
+@using Microsoft.Extensions.Primitives
+@inject GameManager manager
+
+@{
+
+    <p class="hugetext" id="mission"></p>
+
+    <p id="roomcode" onClick="copyRoomcodeToClipBoard()"></p>
+    <input type="hidden" id="hiddenRoomCodeField" value="">
+
+    <div id="qr"></div>
+}
+
+@section Scripts
+{
+    <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+    <script src="~/js/qrcode.min.js"></script>
+    <script src="~/js/cast.js"></script>
+}

@@ -21,6 +21,8 @@
         bool isHost = manager.CheckHost(roomcode, HttpContext.Session.GetStringValue("hostkey"));
         <p class="hugetext" id="mission"></p>
 
+        <button onclick="sendCast()">Cast (BETA)</button>
+
         @if (isHost)
         {
             <p id="hosttag">Host Client</p>
@@ -33,6 +35,7 @@
         <script src="~/js/qrcode.min.js"></script>
         <div id="qr"></div>
         <script>var roomcode = "@roomcode";</script>
+        <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
         <script src="~/js/game.js"></script>
         @if (isHost)
         {
