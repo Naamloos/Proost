@@ -8,8 +8,11 @@
 <h1>Het spel is voorbij!</h1>
 <p>Je wordt terug gestuurd naar de homepage in @redirectDelay seconden...</p>
 
-<script>
+@section Scripts
+{
+    <script>
     setTimeout(function () {
         window.location.href = '/';
     }, @(redirectDelay * 1000));
-</script>
+    </script>
+}

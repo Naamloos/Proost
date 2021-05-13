@@ -30,10 +30,11 @@
 <body>
     <div id="container">
         <div id="contentbox">
-            <img src="~/img/beerx100.png" alt="proost!" class="icon" width="50" height="50"/>
+            <img src="~/img/beerx100.png" alt="proost!" class="icon" width="50" height="50" />
             @RenderBody()
         </div>
     </div>
+    @RenderSection("scripts", required: false)
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto&family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/8473bf5133.js" crossorigin="anonymous"></script>
 </body>

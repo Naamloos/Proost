@@ -4,6 +4,8 @@
 
 var roomurl = location.protocol + '//' + location.host + location.pathname + "?" + roomcode;
 
+var missiontext = "";
+
 var qrcode = new QRCode(document.getElementById("qr"), {
     text: roomurl,
     width: 125,
@@ -74,12 +76,17 @@ ws.onmessage = function (event) {
 
     switch (response.Action) {
         case "redirect":
+            try {session.endSession(true); } catch (e) { }
             window.location.href = response.Context;
             break;
 
         case "text":
             mission.innerHTML = response.Context;
+            missiontext = response.Context;
             setBg();
+            try {
+                sendMessage({ type: 'newtext', text: missiontext });
+            } catch (e) { }
             break;
 
         default:
@@ -87,4 +94,95 @@ ws.onmessage = function (event) {
     }
 
     ws.send("OK");
+}
+
+function sendCast() {
+    // request chromecast session
+    chrome.cast.requestSession(sessionListener, onErr);
+}
+
+var castbtn = document.getElementById("castbutton");
+
+// Big thanks to https://github.com/DeMille/url-cast-receiver/
+window.__onGCastApiAvailable = function (loaded) {
+    if (loaded) { initializeCastApi(); castbtn.style.display = 'auto' };
+};
+
+var applicationID = 'FE21227F'
+    , namespace = 'urn:x-cast:app.proost.cast'
+    , session = null;
+
+function initializeCastApi() {
+    var sessionRequest = new chrome.cast.SessionRequest(applicationID);
+
+    var apiConfig = new chrome.cast.ApiConfig(
+        sessionRequest,
+        sessionListener,
+        receiverListener
+    );
+
+    chrome.cast.initialize(
+        apiConfig,
+        onSuccess.bind(this, 'initialized ok'),
+        onErr
+    );
+
+    castbtn.style.display = "block";
+}
+
+function onErr(err) {
+    console.log('Err: ' + JSON.stringify(err));
+    showError(err);
+}
+
+function onSuccess(msg) {
+    console.log('Sucess: ' + msg);
+}
+
+function sessionListener(newSession) {
+    console.log('New session ID:' + newSession.sessionId);
+    session = newSession;
+    session.addUpdateListener(sessionUpdateListener);
+    session.addMessageListener(namespace, receiveMessage);
+    sendMessage({ type: "start", code: roomcode });
+}
+
+function receiverListener(e) {
+    (e === 'available')
+        ? console.log('receiver found')
+        : console.log('no receivers found');
+}
+
+function sessionUpdateListener(isAlive) {
+    if (!isAlive) {
+        session = null;
+    }
+    console.log('Session is alive?: ', isAlive);
+}
+
+function receiveMessage(namespace, msg) {
+    console.log('Chromecast: ' + msg);
+    if (msg === 'code ok') {
+        try {
+            sendMessage({ type: 'newtext', text: missiontext });
+        } catch (e) { }
+    }
+}
+
+function sendMessage(msg) {
+    session.sendMessage(
+        namespace,
+        msg,
+        function () {
+            console.log('Message sent: ', msg);
+            notify('Message sent: ' + JSON.stringify(msg));
+        },
+        onErr
+    );
+}
+
+function notify(msg) {
+}
+
+function showError(err) {
 }
