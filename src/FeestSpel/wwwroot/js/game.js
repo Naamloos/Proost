@@ -145,7 +145,6 @@ function sessionListener(newSession) {
     session.addUpdateListener(sessionUpdateListener);
     session.addMessageListener(namespace, receiveMessage);
     sendMessage({ type: "start", code: roomcode });
-    sendMessage({ type: "newtext", code: missiontext });
 }
 
 function receiverListener(e) {
@@ -163,6 +162,11 @@ function sessionUpdateListener(isAlive) {
 
 function receiveMessage(namespace, msg) {
     console.log('Chromecast: ' + msg);
+    if (msg === 'code ok') {
+        try {
+            sendMessage({ type: 'newtext', text: missiontext });
+        } catch (e) { }
+    }
 }
 
 function sendMessage(msg) {

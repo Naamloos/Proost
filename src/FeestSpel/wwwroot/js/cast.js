@@ -45,10 +45,11 @@ window.onload = function () {
 
         if (msg.type === 'start') {
             roomcode = msg.code;
-            window.messageBus.send(e.senderId, 'yes thx');
+            window.messageBus.send(e.senderId, 'code ok');
             setCode(msg.code);
         }
         if (msg.type === 'newtext') {
+            window.messageBus.send(e.senderId, 'received msg');
             setNewText(msg.text);
         }
     };
