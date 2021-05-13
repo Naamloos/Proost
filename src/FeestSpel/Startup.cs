@@ -58,11 +58,10 @@ namespace FeestSpel
             else
             {
                 app.UseExceptionHandler("/Error");
+                app.UseWebOptimizer();
             }
 
             app.UseSession();
-
-            app.UseWebOptimizer();
 
             app.UseStaticFiles();
 
