@@ -14,6 +14,7 @@ function addPlayer() {
     newnode.placeholder = "Speler " + players + "...";
     newnode.autocomplete = "off";
     playerlist.appendChild(newnode)
+    playerlist.appendChild(document.createElement("br"));
 }
 
 function clearPlayers() {
@@ -30,6 +31,8 @@ function removeLast() {
         return;
     players--;
     var lastchild = playerlist.children[playerlist.children.length - 1];
+    playerlist.removeChild(lastchild);
+    lastchild = playerlist.children[playerlist.children.length - 1];
     playerlist.removeChild(lastchild);
 }
 
