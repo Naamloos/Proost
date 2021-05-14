@@ -4,7 +4,6 @@
     ViewData["Title"] = "Home page";
 }
 @inject GameManager manager;
-
 <h1>Welkom bij Proost!</h1>
 <p class="paddedtext">
     Drink met mate!
@@ -48,3 +47,12 @@
 <p class="paddedtext" id="cookietext">
     Deze website gebruikt alleen essentiële cookies.
 </p>
+
+@section Scripts
+{
+
+<script src="~/js/particles.min.js"></script>
+<script>
+    particlesJS("particles", { particles: { number: { value: 10, density: { enable: true, value_area: 500 } }, shape: { type: "image", image: { src: "img/beerx100.png", width: 25, height: 25 } }, size: { value: 40, random: true, anim: { enable: false, speed: 28.769389369710616, size_min: 11.987245570712759, sync: false } }, line_linked: { enable: false, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 }, move: { enable: true, speed: 10, direction: "bottom", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 0, rotateY: 0 } } }, retina_detect: true });
+</script>
+}

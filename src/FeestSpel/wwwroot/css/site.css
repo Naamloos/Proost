@@ -10,9 +10,12 @@ html, body {
     width: 100%;
     height: 100%;
     font-family: Roboto;
-    background-color: #151515;
     color: white;
     user-select: none;
+}
+
+html {
+    background-color: #151515;
 }
 
 #container {
@@ -193,4 +196,14 @@ h1, h2, h3, h4, h5 {
     #qr {
         display: none;
     }
+}
+
+#particles{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
 }
