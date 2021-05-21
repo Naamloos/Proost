@@ -117,6 +117,138 @@
       "SubjectCount": 0,
       "TakesDrinks": "Neem {0} slokken als je nog maagd bent.",
       "FinishesGlass": "Drink je glas leeg als je nog maagd bent."
+    },
+    {
+      "MissionText": "Noem om de beurt zo veel mogelijk landen op, {0} begint. Wie niks meer kan bedenken",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Degene die het meeste heeft gedronken",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken. 😏",
+      "FinishesGlass": "drinkt zijn glas leeg. 😏"
+    },
+    {
+      "MissionText": "{0} en {1} moeten tegelijk hun glas zo snel mogelijk leeg drinken. De verliezer",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} extra slokken.",
+      "FinishesGlass": "drinkt nog een glas leeg."
+    },
+    {
+      "MissionText": "{0} mag",
+      "SubjectCount": 1,
+      "TakesDrinks": "{0} slokken uitdelen.",
+      "FinishesGlass": "een atje uitdelen."
+    },
+    {
+      "MissionText": "{0} bedenkt een taboe vraag die {1} moet beantwoorden. Als dit niet lukt dan drinkt {1}",
+      "SubjectCount": 2,
+      "TakesDrinks": "{0} slokken.",
+      "FinishesGlass": "zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} bedenkt een dier. {1} moet het geluid van dit dier nadoen. Als dit niet lukt dan drinkt {1}",
+      "SubjectCount": 2,
+      "TakesDrinks": "{0} slokken.",
+      "FinishesGlass": "zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} bedenkt twee waarheden en een leugen over zichzelf. Als {1} de leugen niet raadt,",
+      "SubjectCount": 1,
+      "TakesDrinks": "dan neemt hij {0} slokken. Als hij het wel raadt dan drinken alle andere spelers {0} slokken.",
+      "FinishesGlass": "dan drinkt zijn glas leeg. Als hij het wel raadt dan drinken alle andere spelers hun glas leeg."
+    },
+    {
+      "MissionText": "{0} kiest iemand om mee te duimworstelen. De verliezer",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Hoedje voor de koning! De verliezer",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Liever zonder armen of zonder benen leven? Iedereen die de minst populaire optie kiest",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} noemt iets wat hij nog nooit gedaan heeft. Iedereen die dit wel al heeft gedaan",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} beslissen samen wie er",
+      "SubjectCount": 1,
+      "TakesDrinks": "{0} slokken neemt.",
+      "FinishesGlass": "zijn glas leeg drinkt."
+    },
+    {
+      "MissionText": "Neem allemaal samen een shotje!",
+      "SubjectCount": 0,
+      "TakesDrinks": "",
+      "FinishesGlass": ""
+    },
+    {
+      "MissionText": "Iedereen die zijn neus met zijn tong aan kan raken mag",
+      "SubjectCount": 0,
+      "TakesDrinks": "{0} slokken uitdelen.",
+      "FinishesGlass": "een atje uitdelen."
+    },
+    {
+      "MissionText": "De eerste persoon die lacht",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} mag 3 atjes doen of ",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "De slimste speler moet",
+      "SubjectCount": 0,
+      "TakesDrinks": "{0} slokken nemen.",
+      "FinishesGlass": "zijn glas leeg drinken."
+    },
+    {
+      "MissionText": "De minst slimme speler moet",
+      "SubjectCount": 0,
+      "TakesDrinks": "{0} slokken nemen.",
+      "FinishesGlass": "zijn glas leeg drinken."
+    },
+    {
+      "MissionText": "{0} moet het drankje van {1}",
+      "SubjectCount": 0,
+      "TakesDrinks": "{0} slokken van nemen.",
+      "FinishesGlass": "leeg drinken."
+    },
+    {
+      "MissionText": "De oudste en de jongste speler drinken samen",
+      "SubjectCount": 0,
+      "TakesDrinks": "{0} slokken.",
+      "FinishesGlass": "hun glas leeg."
+    },
+    {
+      "MissionText": "Liever bier of iets anders? De mensen met de minst populaire optie",
+      "SubjectCount": 0,
+      "TakesDrinks": "nemen {0} slokken.",
+      "FinishesGlass": "drinken hun glas leeg."
+    },
+    {
+      "MissionText": "Zou jij je ziel verkopen aan de duivel voor een gunst?",
+      "SubjectCount": 0,
+      "TakesDrinks": "neem {0} slokken.",
+      "FinishesGlass": "drinken je glas leeg."
     }
   ],
   "SubMissions": 
@@ -165,6 +297,36 @@
       "Activation": "{0} en {1} drinken nu voor elkaar. Als {0} een slok moet nemen of zijn glas leeg moet drinken, dan moet {1} dat doen, en andersom.",
       "Deactivation": "{1} en {0} hoeven niet meer samen te drinken.",
       "SubjectCount": 2
+    },
+    {
+      "Activation": "Sorry! Elke keer als iemand wat tegen {0} zegt, dan moet {0} zijn excuses aanbieden. Lukt dit niet? Dan moet hij of zij het glas leeg drinken.",
+      "Deactivation": "{0} hoeft niet meer zijn excuses aan te bieden.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet alles herhalen wat {1} zegt.",
+      "Deactivation": "{0} hoeft niets meer te herhalen.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} is het pispaaltje. Je mag hem of haar voor alles uit maken.",
+      "Deactivation": "{0} is niet meer het pispaaltje.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet vanaf nu met een deftig accent praten.",
+      "Deactivation": "{0} hoeft niet meer met een deftig accent te praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Je mag niet meer vloeken. Elke keer als iemand vloekt drink hij/zij zijn glas leeg.",
+      "Deactivation": "Je mag weer vloeken!",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} mag tot nadere orde niet meer naar de WC.",
+      "Deactivation": "{0} mag weer naar de WC!",
+      "SubjectCount": 1
     }
   ]
 }
