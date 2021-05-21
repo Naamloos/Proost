@@ -28,23 +28,18 @@ document.addEventListener('keydown', event => {
 });
 
 function NextPage() {
-    try {
-        SendWs("++");
-    } catch (e) { reconnect(); }
+    SendWs("++");
 }
 
 function StopGame() {
-    try {
-        SendWs("xx");
-    } catch (e) { reconnect(); }
+    SendWs("xx");
 }
 
 function SendWs(value) {
-    if (ws.readyState == 1) {
+    if (ws.readyState == 1)
+    {
         try {
             ws.send(value);
-        } catch (e) { reconnect(); }
-    } else if (ws.readyState != 0) {
-        reconnect();
+        } catch (e) { }
     }
 }

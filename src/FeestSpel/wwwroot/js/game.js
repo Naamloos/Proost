@@ -192,3 +192,15 @@ function notify(msg) {
 
 function showError(err) {
 }
+
+function doWebsocketCheck() {
+    setInterval(function () {
+        // CLOSING or CLOSED
+        if (ws.readyState == 2 || ws.readyState == 3) {
+            reconnect();
+        }
+        doWebsocketCheck();
+    }, 500);
+}
+
+doWebsocketCheck();
