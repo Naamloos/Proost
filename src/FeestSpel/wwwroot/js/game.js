@@ -69,32 +69,38 @@ if (location.protocol === 'https:') {
     wspath = "ws://" + wspath;
 }
 
-var ws = new WebSocket(wspath);
+var ws;
 
-ws.onmessage = function (event) {
-    var response = JSON.parse(event.data);
+function reconnect() {
+    ws = new WebSocket(wspath);
 
-    switch (response.Action) {
-        case "redirect":
-            try {session.endSession(true); } catch (e) { }
-            window.location.href = response.Context;
-            break;
+    ws.onmessage = function (event) {
+        var response = JSON.parse(event.data);
 
-        case "text":
-            mission.innerHTML = response.Context;
-            missiontext = response.Context;
-            setBg();
-            try {
-                sendMessage({ type: 'newtext', text: missiontext });
-            } catch (e) { }
-            break;
+        switch (response.Action) {
+            case "redirect":
+                try { session.endSession(true); } catch (e) { }
+                window.location.href = response.Context;
+                break;
 
-        default:
-            break;
+            case "text":
+                mission.innerHTML = response.Context;
+                missiontext = response.Context;
+                setBg();
+                try {
+                    sendMessage({ type: 'newtext', text: missiontext });
+                } catch (e) {}
+                break;
+
+            default:
+                break;
+        }
+
+        ws.send("OK");
     }
-
-    ws.send("OK");
 }
+
+reconnect();
 
 function sendCast() {
     // request chromecast session
