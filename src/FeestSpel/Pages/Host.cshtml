@@ -137,7 +137,8 @@ else
                     <label>Dronken (Glas moet altijd leeg)</label>
                     <br /><br />
                     <label><b>Pakket</b></label>
-                    <select name="pack">
+                    <br />
+                    <select name="pack" multiple="" size="5" id="packSelector" onchange="Temp()">
                         @foreach (var pack in manager.GetPacks())
                         {
                             <option value="@pack.Title">@pack.Title</option>
@@ -158,7 +159,22 @@ else
     <a href="~/" class="backlink">Terug naar home</a>
 </p>
 
-@section Scripts
-{
-    <script src="~/js/host.js"></script>
-}
+<script>
+    function Temp() {
+        var i = 0;
+        var e = 0;
+        var el = document.getElementById("packSelector");
+        var totalSelected = 0;
+
+        for (e; e < el.length; e++) {
+            if (el.options[e].selected) {
+                totalSelected++;
+            }
+        }
+
+        for (i; i < totalSelected; i++) {
+            console.log(el.selectedOptions[i].value);
+        }
+        
+    }
+</script>
