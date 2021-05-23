@@ -1,8 +1,6 @@
 ﻿@page
 @model FeestSpel.Pages.HostModel
-@{
-    ViewData["Title"] = "Create new";
-}
+@{ ViewData["Title"] = "Create new"; }
 @using Entities;
 @inject GameManager manager;
 
@@ -56,108 +54,107 @@
 
     if (i > 3)
     {
-        <h1>Room code aanmaken ging fout. Probeer het opnieuw.</h1>
-    }
-    else if (pack == null)
-    {
-        <h1>Je geselecteerde pack bestaat niet!</h1>
-    }
-    else if (!missionCountIsValid)
-    {
-        <h1>Je mission count is niet valid!</h1>
-    }
-    else if (pack.GetMinimumPlayers() > players.Count())
-    {
-        <h1>Je hebt niet genoeg spelers voor deze pack! Minimum voor deze pack is @pack.GetMinimumPlayers()!</h1>
-    }
-    else if (string.IsNullOrEmpty(diff))
-    {
-        <h1>Je geselecteerde difficulty bestaat niet!</h1>
-    }
-    else if (manager.GetAmountOfRoomsOnIp(HttpContext.Connection.RemoteIpAddress) > 3)
-    {
-        <h1>Er zijn al te veel geopende kamers op jouw IP!</h1>
-    }
-    else if (missionCountInt > 50 || missionCountInt < 1)
-    {
-        <h1>Opdrachten-aantal moet tussen 1 en 50 zijn!</h1>
-    }
-    else
-    {
-        var settings = new GameSettings()
-        {
-            Players = players,
-            MissionCount = missionCountInt,
-            Difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), diff)
-        };
+<h1>Room code aanmaken ging fout. Probeer het opnieuw.</h1> }
+                else if (pack == null)
+                {
+<h1>Je geselecteerde pack bestaat niet!</h1> }
+                else if (!missionCountIsValid)
+                {
+<h1>Je mission count is niet valid!</h1> }
+                else if (pack.GetMinimumPlayers() > players.Count())
+                {
+<h1>Je hebt niet genoeg spelers voor deze pack! Minimum voor deze pack is @pack.GetMinimumPlayers()!</h1> }
+                else if (string.IsNullOrEmpty(diff))
+                {
+<h1>Je geselecteerde difficulty bestaat niet!</h1> }
+                else if (manager.GetAmountOfRoomsOnIp(HttpContext.Connection.RemoteIpAddress) > 3)
+                {
+<h1>Er zijn al te veel geopende kamers op jouw IP!</h1> }
+                else if (missionCountInt > 50 || missionCountInt < 1)
+                {
+<h1>Opdrachten-aantal moet tussen 1 en 50 zijn!</h1> }
+                else
+                {
+                    var settings = new GameSettings()
+                    {
+                        Players = players,
+                        MissionCount = missionCountInt,
+                        Difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), diff)
+                    };
 
-        var key = Room.GenerateCode();
-        var room = new Room(code, key, settings, pack, HttpContext.Connection.RemoteIpAddress);
+                    var key = Room.GenerateCode();
+                    var room = new Room(code, key, settings, pack, HttpContext.Connection.RemoteIpAddress);
 
-        var oldroom = manager.GetRoomByCode(HttpContext.Session.GetStringValue("roomcode"));
-        if (oldroom != null)
-        {
-            if (oldroom.HostKey == HttpContext.Session.GetStringValue("hostkey"))
-                _ = Task.Run(async () => await oldroom.KillAsync());
-        }
+                    var oldroom = manager.GetRoomByCode(HttpContext.Session.GetStringValue("roomcode"));
+                    if (oldroom != null)
+                    {
+                        if (oldroom.HostKey == HttpContext.Session.GetStringValue("hostkey"))
+                            _ = Task.Run(async () => await oldroom.KillAsync());
+                    }
 
-        HttpContext.Session.SetStringValue("roomcode", code);
-        HttpContext.Session.SetStringValue("hostkey", key);
+                    HttpContext.Session.SetStringValue("roomcode", code);
+                    HttpContext.Session.SetStringValue("hostkey", key);
 
-        manager.RegisterRoom(room);
+                    manager.RegisterRoom(room);
 
-        HttpContext.Response.Redirect("game");
-    }
-}
-else
-{
-    <h1>Nieuw Spel Starten</h1>
-    <div id="hostform">
-        <form method="post">
-            <!-- Ja, I know. Dit is de lelijkste form die je ooit gezien hebt. Thanks. Maar front-facing deel is wel oke ;) -->
-            <label><b>Spelers</b></label>
-            <br />
-            <button type="button" class="smallbutton" onclick="addPlayer()"><i class="fas fa-plus"></i></button>
-            <button type="button" class="smallbutton" onclick="removeLast()"><i class="fas fa-trash"></i></button>
-            <button type="button" class="smallbutton" onclick="clearPlayers()"><i class="fas fa-undo"></i></button>
-            <div id="playerlist">
-            </div>
-            <br />
-            <br />
-            <label><b>Moeilijkheid</b></label>
-            <div id="radiocontainer">
-                <div id="radios">
-                    <input type="radio" name="difficulty" value="Sober" />
-                    <label>Nuchter (Alleen slokjes)</label>
-                    <br />
-                    <input type="radio" name="difficulty" value="Normal" checked="checked" />
-                    <label>Normaal (Willekeurig)</label>
-                    <br />
-                    <input type="radio" name="difficulty" value="Drunk" />
-                    <label>Dronken (Glas moet altijd leeg)</label>
-                    <br /><br />
-                    <label><b>Pakket</b></label>
-                    <br />
-                    <select name="pack" multiple="" size="5" id="packSelector" onchange="Temp()">
-                        @foreach (var pack in manager.GetPacks())
-                        {
-                            <option value="@pack.Title">@pack.Title</option>
-                        }
-                    </select>
-                    <br />
-                    <label><b>Opdrachten</b></label>
-                    <input type="number" value="30" min="1" max="100" name="amount" />
+                    HttpContext.Response.Redirect("game");
+                }
+            }
+            else
+            {
+                <h1>Nieuw Spel Starten</h1>
+                <div id="hostform">
+                    <form method="post">
+                        <!-- Ja, I know. Dit is de lelijkste form die je ooit gezien hebt. Thanks. Maar front-facing deel is wel oke ;) -->
+                        <label><b>Spelers</b></label>
+                        <br />
+                        <button type="button" class="smallbutton" onclick="addPlayer()"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="smallbutton" onclick="removeLast()"><i class="fas fa-trash"></i></button>
+                        <button type="button" class="smallbutton" onclick="clearPlayers()"><i class="fas fa-undo"></i></button>
+                        <div id="playerlist">
+                        </div>
+                        <br />
+                        <br />
+                        <label><b>Moeilijkheid</b></label>
+                        <div id="radiocontainer">
+                            <div id="radios">
+                                <input type="radio" name="difficulty" value="Sober" />
+                                <label>Nuchter (Alleen slokjes)</label>
+                                <br />
+                                <input type="radio" name="difficulty" value="Normal" checked="checked" />
+                                <label>Normaal (Willekeurig)</label>
+                                <br />
+                                <input type="radio" name="difficulty" value="Drunk" />
+                                <label>Dronken (Glas moet altijd leeg)</label>
+                                <br /><br />
+                                <label><b>Pakket</b></label>
+                                <br />
+                                <select name="pack" multiple="" size="5" id="packSelector" onchange="Temp()">
+                                    @foreach (var pack in manager.GetPacks())
+                                    {
+                                        <option value="@pack.Title">@pack.Title</option>
+                                    }
+                                </select>
+                                <br />
+                                <label><b>Opdrachten</b></label>
+                                <input type="number" value="30" min="1" max="100" name="amount" />
+                            </div>
+                        </div>
+                        <br />
+                        <input type="submit" class="fancybtn" value="Start" />
+                    </form>
                 </div>
-            </div>
-            <br />
-            <input type="submit" class="fancybtn" value="Start" />
-        </form>
-    </div>
-}
+            }
 
 <p class="paddedtext">
     <a href="~/" class="backlink">Terug naar home</a>
 </p>
+
+
+@section Scripts
+{
+    <script src="~/js/host.js"></script>
+}
 
 <script>
     function Temp() {
@@ -175,6 +172,6 @@ else
         for (i; i < totalSelected; i++) {
             console.log(el.selectedOptions[i].value);
         }
-        
+
     }
 </script>
