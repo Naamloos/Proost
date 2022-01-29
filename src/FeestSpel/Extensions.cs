@@ -31,6 +31,13 @@ namespace FeestSpel
             return "";
         }
 
+        public static string[] GetStringArray(this IFormCollection form, string key)
+        {
+            form.TryGetValue(key, out StringValues value);
+
+            return value.Select(x => x.ToString()).ToArray();
+        }
+
         public static List<string> GetPlayers(this IFormCollection form)
         {
             return form.Keys.Where(x => x.StartsWith("player")).Select(x => form.GetStringValue(x)).ToList();

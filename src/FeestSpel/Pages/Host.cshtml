@@ -8,7 +8,7 @@
 {
     // do validity checks
     var form = HttpContext.Request.Form;
-    var packName = form.GetStringValue("pack");
+    var packName = form.GetStringArray("pack");
     var missionCount = form.GetStringValue("amount");
 
     if (missionCount == "69")
@@ -37,7 +37,7 @@
         return;
     }
 
-    var pack = manager.GetPacks().FirstOrDefault(x => x.Title == packName);
+    var pack = manager.GetPacks().Where(x => packName.Contains(x.Title));
     var diffs = Enum.GetNames(typeof(Difficulty));
     var diff = diffs.FirstOrDefault(x => x.ToLower() == difficulty.ToLower());
     var code = "";
@@ -55,15 +55,15 @@
     if (i > 3)
     {
 <h1>Room code aanmaken ging fout. Probeer het opnieuw.</h1> }
-                else if (pack == null)
+                else if (pack.Count() < 1)
                 {
-<h1>Je geselecteerde pack bestaat niet!</h1> }
+<h1>Je geselecteerde pack(s) bestaat niet!</h1> }
                 else if (!missionCountIsValid)
                 {
 <h1>Je mission count is niet valid!</h1> }
-                else if (pack.GetMinimumPlayers() > players.Count())
+                else if (pack.Any(x => x.GetMinimumPlayers() > players.Count()))
                 {
-<h1>Je hebt niet genoeg spelers voor deze pack! Minimum voor deze pack is @pack.GetMinimumPlayers()!</h1> }
+<h1>Je hebt niet genoeg spelers voor deze packs! Minimum voor deze packs is @pack.Min(x =>x.GetMinimumPlayers())!</h1> }
                 else if (string.IsNullOrEmpty(diff))
                 {
 <h1>Je geselecteerde difficulty bestaat niet!</h1> }

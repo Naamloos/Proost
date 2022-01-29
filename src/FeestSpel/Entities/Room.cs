@@ -16,7 +16,7 @@ namespace FeestSpel.Entities
         /// </summary>
         public string HostKey;
 
-        public GamePack pack;
+        public IEnumerable<GamePack> packs;
 
         public AsyncObserver<string> CurrentText;
 
@@ -38,14 +38,14 @@ namespace FeestSpel.Entities
 
         private SubMission lastSubMission { get; set; } = null;
 
-        public Room(string roomcode, string hostkey, GameSettings settings, GamePack pack, IPAddress CreatedAt)
+        public Room(string roomcode, string hostkey, GameSettings settings, IEnumerable<GamePack> pack, IPAddress CreatedAt)
         {
             this.RoomCode = roomcode;
             this.HostKey = hostkey;
             this.Settings = settings;
-            this.pack = pack;
+            this.packs = pack;
             this.CreatedAt = CreatedAt;
-            var miss = pack.BuildNewMissionString(settings, null);
+            var miss = packs.ElementAt(new Random().Next(0, packs.Count())).BuildNewMissionString(settings, null);
             this.lastMission = miss.Item2;
             this.CurrentText = new AsyncObserver<string>(miss.Item1);
         }
@@ -95,7 +95,7 @@ namespace FeestSpel.Entities
             else if (rng.Next(0, 8) == 1 && (Settings.MissionCount - MissionsPassed > 1))
             {
                 // activate new sub mission
-                var selectedSubMission = pack.GetNewSubMission(lastSubMission);
+                var selectedSubMission = packs.ElementAt(new Random().Next(0, packs.Count())).GetNewSubMission(lastSubMission);
                 this.lastSubMission = selectedSubMission;
                 var maxSelection = Settings.Players.Count() - (selectedSubMission.SubjectCount - 1);
 
@@ -112,7 +112,7 @@ namespace FeestSpel.Entities
             else
             {
                 // regular mission
-                var miss = pack.BuildNewMissionString(Settings, lastMission);
+                var miss = packs.ElementAt(new Random().Next(0, packs.Count())).BuildNewMissionString(Settings, lastMission);
                 missionstring = miss.Item1;
                 lastMission = miss.Item2;
             }
