@@ -26,7 +26,7 @@ namespace FeestSpel.Entities
 
             var selection = SubMissions.ElementAt(new Random().Next(0, SubMissions.Count()));
 
-            if (selection != previous)
+            if (selection != previous || SubMissions.Count < 2)
                 return selection;
 
             return GetNewSubMission(previous);
