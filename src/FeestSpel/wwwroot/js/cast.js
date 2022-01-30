@@ -25,7 +25,7 @@ function setCode(code) {
         text: location.protocol + '//' + location.host + location.pathname + "?" + code,
         width: 125,
         height: 125,
-        colorDark: "#000000",
+        colorDark: "#653ba2",
         colorLight: "#FFFFFF",
         correctLevel: QRCode.CorrectLevel.H
     });
@@ -62,6 +62,12 @@ window.onload = function () {
             window.messageBus.send(e.senderId, 'received msg');
             setNewText(msg.text);
             setBg();
+        }
+        if (msg.type === 'kill') {
+            window.messageBus.send(e.senderId, 'killing cast conn');
+            setNewText("Spel voorbij");
+            setBg();
+            window.castReceiverManager.stop();//dont know, can't test :/ No chromecast in my student room rn.
         }
     };
 

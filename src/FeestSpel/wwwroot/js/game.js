@@ -10,7 +10,7 @@ var qrcode = new QRCode(document.getElementById("qr"), {
     text: roomurl,
     width: 125,
     height: 125,
-    colorDark: "#000000",
+    colorDark: "#653ba2",
     colorLight: "#FFFFFF",
     correctLevel: QRCode.CorrectLevel.H
 });
@@ -87,6 +87,9 @@ function reconnect() {
 
         switch (response.Action) {
             case "redirect":
+                try {
+                    sendMessage({ type: 'kill', text: missiontext });
+                } catch (e) { }
                 try { session.endSession(true); } catch (e) { }
                 window.location.href = response.Context;
                 break;
