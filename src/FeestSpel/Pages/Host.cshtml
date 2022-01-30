@@ -114,7 +114,6 @@
                         <div id="playerlist">
                         </div>
                         <br />
-                        <br />
                         <label><b>Moeilijkheid</b></label>
                         <div id="radiocontainer">
                             <div id="radios">
@@ -127,19 +126,21 @@
                                 <input type="radio" name="difficulty" value="Drunk" />
                                 <label>Dronken (Glas moet altijd leeg)</label>
                                 <br /><br />
-                                <label><b>Pakket</b></label>
-                                <br />
-                                <select name="pack" multiple="" size="5" id="packSelector" onchange="Temp()">
-                                    @foreach (var pack in manager.GetPacks())
-                                    {
-                                        <option value="@pack.Title">@pack.Title</option>
-                                    }
-                                </select>
-                                <br />
-                                <label><b>Opdrachten</b></label>
-                                <input type="number" value="30" min="1" max="100" name="amount" />
                             </div>
                         </div>
+                        <label><b>Pakket</b></label>
+                        <br />
+                        <select name="pack" class="multi" multiple="multiple" style="color: black !important">
+                            @foreach (var pack in manager.GetPacks())
+                            {
+                                  <option value="@pack.Title">@pack.Title</option>
+                            }
+                        </select>
+                        <br />
+                        <br />
+                        <label><b>Opdrachten</b></label>
+                        <input type="number" value="30" min="1" max="100" name="amount" />
+                        <br />
                         <br />
                         <input type="submit" class="fancybtn" value="Start" />
                     </form>
@@ -154,24 +155,12 @@
 @section Scripts
 {
     <script src="~/js/host.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $('.multi').select2({
+          theme: "classic"
+        });
+    </script>
 }
-
-<script>
-    function Temp() {
-        var i = 0;
-        var e = 0;
-        var el = document.getElementById("packSelector");
-        var totalSelected = 0;
-
-        for (e; e < el.length; e++) {
-            if (el.options[e].selected) {
-                totalSelected++;
-            }
-        }
-
-        for (i; i < totalSelected; i++) {
-            console.log(el.selectedOptions[i].value);
-        }
-
-    }
-</script>
