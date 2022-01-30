@@ -47,15 +47,23 @@ function copyRoomcodeToClipBoard() {
     }
     roomcode.type = 'hidden';
 }
+//old colors if u want them ryan
+//var colors = ["#fcba03", "#03fc66", "#035afc", "#9003fc", "#fc0373", "#fc2003", "#03fcd3"];
 
-var colors = ["#fcba03", "#03fc66", "#035afc", "#9003fc", "#fc0373", "#fc2003", "#03fcd3"];
+//first color is normal color, the second color is the gradient | most colors are from https://cssgradient.io/gradient-backgrounds/
+var colors = [["#FDEB71", "#F8D800"], ["#ABDCFF", "#0396FF"], ["#FEB692", "#EA5455"], ["#CE9FFC", "#7367F0"], ["#90F7EC", "#32CCBC"], ["#FFF6B7", "#F6416C"],
+              ["#81FBB8", "#28C76F"], ["#E2B0FF", "#9F44D3"], ["#F97794", "#623AA2"], ["#FCCF31", "#F55555"], ["#F761A1", "#8C1BAB"], ["#43CBFF", "#9708CC"],
+              ["#5EFCE8", "#736EFE"], ["#FAD7A1", "#E96D71"], ["#FFD26F", "#3677FF"], ["#A0FE65", "#FA016D"], ["#FFDB01", "#0E197D"], ["#FEC163", "#DE4313"],
+              ["#FDD819", "#E80505"], ["#79F1A4", "#0E5CAD"], ["#F05F57", "#360940"], ["#2AFADF", "#4C83FF"], ["#6B73FF", "#000DFF"], ["#70F570", "#49C628"],
+              ["#FFCF71", "#2376DD"]];
 
 function setBg() {
-    var color = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = color;
-    document.getElementById("headercolor").content = color;
-}
+    var randomColor = Math.floor(Math.random() * colors.length);
 
+    var gradient = "radial-gradient(circle, " + colors[randomColor][0] + ", " + colors[randomColor][1] + ")";
+    document.body.style.background = gradient;
+    document.getElementById("headercolor").content = colors[randomColor][0];
+}
 setBg();
 
 var mission = document.getElementById("mission");
@@ -89,7 +97,7 @@ function reconnect() {
                 setBg();
                 try {
                     sendMessage({ type: 'newtext', text: missiontext });
-                } catch (e) {}
+                } catch (e) { }
                 break;
 
             default:

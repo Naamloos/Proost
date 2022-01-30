@@ -36,7 +36,7 @@ html {
     padding: 8px;
 }
 
-button, .fancybtn {
+.fancybtn {
     min-width: 100px;
     min-height: 35px;
     border-radius: 5px;
@@ -207,4 +207,13 @@ h1, h2, h3, h4, h5 {
     left: 0;
     opacity: 0.4;
     overflow: hidden;
+}
+
+.select2-container--classic {
+    color: black !important;
+}
+
+.multi
+{
+    width: 100%;
 }
