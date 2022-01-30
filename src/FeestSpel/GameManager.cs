@@ -37,7 +37,11 @@ namespace FeestSpel
 
             foreach (var pack in packs)
             {
-                this.packs.Add((GamePack)JsonSerializer.Deserialize(File.ReadAllText(pack), typeof(GamePack)));
+                var loadedPack = (GamePack)JsonSerializer.Deserialize(File.ReadAllText(pack), typeof(GamePack));
+                if (loadedPack.Missions.Count > 0 && loadedPack.SubMissions.Count > 0)
+                {
+                    this.packs.Add(loadedPack);
+                }
             }
         }
 
@@ -65,12 +69,7 @@ namespace FeestSpel
 
         public Room GetRoomByCode(string code)
         {
-            if (rooms.Any(x => x.RoomCode == code))
-            {
-                return rooms.First(x => x.RoomCode == code);
-            }
-
-            return null;
+            return rooms.FirstOrDefault(x => x.RoomCode == code);
         }
 
         public void RegisterRoom(Room room)
@@ -95,7 +94,7 @@ namespace FeestSpel
 
         public bool CheckHost(string roomcode, string hostkey)
         {
-            return rooms.First(x => x.RoomCode == roomcode).HostKey == hostkey;
+            return rooms.FirstOrDefault(x => x.RoomCode == roomcode)?.HostKey == hostkey;
         }
 
         private async Task loop()

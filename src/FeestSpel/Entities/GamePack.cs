@@ -39,7 +39,7 @@ namespace FeestSpel.Entities
             var missionCount = Missions.Count();
             var selectedMission = Missions.ElementAt(rng.Next(0, missionCount));
 
-            if (selectedMission == previous)
+            if (selectedMission == previous && Missions.Count() > 1)
                 return BuildNewMissionString(settings, previous);
 
             var maxSelection = settings.Players.Count() - (selectedMission.SubjectCount - 1);
