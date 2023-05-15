@@ -37,6 +37,10 @@ namespace FeestSpel
 
             foreach (var pack in packs)
             {
+                if(!File.Exists(pack))
+                {
+                    continue;
+                }
                 var loadedPack = (GamePack)JsonSerializer.Deserialize(File.ReadAllText(pack), typeof(GamePack));
                 if (loadedPack.Missions.Count > 0 && loadedPack.SubMissions.Count > 0)
                 {
