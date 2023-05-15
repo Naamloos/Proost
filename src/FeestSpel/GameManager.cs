@@ -21,7 +21,7 @@ namespace FeestSpel
             cts = new CancellationTokenSource();
             this.rooms = new List<Room>();
             this.packs = new List<GamePack>();
-            string assemblypath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string assemblypath = Directory.GetCurrentDirectory();
             string packpath = Path.Combine(Path.GetDirectoryName(assemblypath), "packs");
 
             // we can just preload here, no worries lol
