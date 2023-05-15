@@ -2,6 +2,7 @@ version: "3.9" # Docker compose version, NOT project version
 
 services:
   proost:
+    hostname: proost
     build: .
     restart: unless-stopped
     volumes:
