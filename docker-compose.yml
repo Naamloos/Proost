@@ -1,0 +1,12 @@
+version: "3.9" # Docker compose version, NOT project version
+
+services:
+  proost:
+    build: .
+    restart: unless-stopped
+    volumes:
+      - proostdata:/data
+
+volumes:
+  proostdata:
+    external: true
