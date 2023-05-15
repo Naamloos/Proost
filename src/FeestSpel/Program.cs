@@ -21,7 +21,7 @@ namespace FeestSpel
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>()
-                    .UseUrls("http://+:3456/");
+                    .UseUrls("http://*:3456/");
                 });
     }
 }
