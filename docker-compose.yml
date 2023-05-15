@@ -7,3 +7,6 @@ services:
     restart: unless-stopped
     volumes:
       - proostdata:/data
+
+volumes:
+  proostdata:
