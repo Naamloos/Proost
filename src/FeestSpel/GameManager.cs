@@ -41,6 +41,7 @@ namespace FeestSpel
                 {
                     continue;
                 }
+                Console.WriteLine($"Loading {pack}");
                 var loadedPack = (GamePack)JsonSerializer.Deserialize(File.ReadAllText(pack), typeof(GamePack));
                 if (loadedPack.Missions.Count > 0 && loadedPack.SubMissions.Count > 0)
                 {
