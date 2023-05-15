@@ -37,7 +37,7 @@ namespace FeestSpel
 
             foreach (var pack in packs)
             {
-                if(!File.Exists(pack))
+                if(!File.Exists(pack) || !pack.EndsWith(".json"))
                 {
                     continue;
                 }
