@@ -6,7 +6,7 @@ services:
     build: .
     restart: unless-stopped
     volumes:
-      - proostdata:/data
+      - proostdata:/app/packs
 
 volumes:
   proostdata:
