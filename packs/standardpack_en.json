@@ -1,7 +1,7 @@
 {
-  "Standard Pack": "Standaard pack (ENGLISH)",
-  "Standard question pack": "Standaard vragenpakket in English",
-  "Nameless": "Naamloos",
+  "Title": "Standaard pack EN",
+  "Description": "Standaard vragenpakket EN",
+  "Author": "Naamloos",
   "AuthorUrl": "https://github.com/Naamloos/",
   "Missions": [
     {
