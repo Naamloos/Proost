@@ -249,6 +249,192 @@
       "SubjectCount": 0,
       "TakesDrinks": "neem {0} slokken.",
       "FinishesGlass": "drinken je glas leeg."
+    },
+    {
+      "MissionText": "Iedereen die ooit een bot heeft gebroken",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} moeten een armworstelwedstrijd houden. De verliezer",
+      "SubjectCount": 2,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen die een huisdier heeft",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} moeten een danswedstrijd houden. De verliezer",
+      "SubjectCount": 2,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen die ooit een boete heeft gekregen",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen met een bril",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} moeten tegelijkertijd een mop vertellen. De groep kiest wie de grappigste is. De verliezer",
+      "SubjectCount": 2,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "De speler die als laatst een berichtje op zijn telefoon heeft gestuurd",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} moeten zo lang mogelijk elkaar aankijken zonder te lachen. De eerste die lacht",
+      "SubjectCount": 2,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen die een tatoeage heeft",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} moet een grap maken. Als niemand lacht",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt hij of zij {0} slokken.",
+      "FinishesGlass": "drinkt hij of zij zijn glas leeg."
+    },
+    {
+      "MissionText": "De persoon die het laatst jarig is geweest",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen met iets roods aan",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen doet een dierengeluid. Wie het stilste is",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "De persoon met de langste achternaam",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} en {1} moeten elkaar bekvechten alsof ze oude mensen in de rij voor de supermarkt zijn. De verliezer",
+      "SubjectCount": 2,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen die ooit een bot heeft gebroken",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} moet een schattige bijnaam verzinnen voor {1}. Als de groep het niet schattig genoeg vindt,",
+      "SubjectCount": 2,
+      "TakesDrinks": "neemt {0} {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "De persoon die het meest recent in slaap is gevallen tijdens een film",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "Iedereen die minstens één kamerplant bezit",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} moet het alfabet achterstevoren opzeggen. Elke fout",
+      "SubjectCount": 1,
+      "TakesDrinks": "kost hem/haar {0} slokken.",
+      "FinishesGlass": "betekent dat hij/zij zijn glas leeg drinkt."
+    },
+    {
+      "MissionText": "De speler die het meest recent een e-mail heeft verzonden",
+      "SubjectCount": 0,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0}, {1} en {2} moeten een korte improvisatiescène spelen als een familie tijdens een ongemakkelijke kerstdiner. De slechtste acteur",
+      "SubjectCount": 3,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0}, {1} en {2} moeten een menselijke piramide bouwen. Als het mislukt,",
+      "SubjectCount": 3,
+      "TakesDrinks": "neemt iedereen {0} slokken.",
+      "FinishesGlass": "moeten alle drie hun glas leegdrinken."
+    },
+    {
+      "MissionText": "Laat {0}, {1} en {2} een teamlied verzinnen en zingen. Als het niet pakkend genoeg is volgens de groep,",
+      "SubjectCount": 3,
+      "TakesDrinks": "neemt elk van hen {0} slokken.",
+      "FinishesGlass": "drinken ze samen hun glazen leeg."
+    },
+    {
+      "MissionText": "{0} en {1} moeten een ‘interview’ doen waarbij {0} een beroemdheid is en {1} de interviewer. Als het gesprek saai wordt,",
+      "SubjectCount": 2,
+      "TakesDrinks": "nemen ze allebei {0} slokken.",
+      "FinishesGlass": "moeten ze hun glazen leegdrinken."
+    },
+    {
+      "MissionText": "{0} en {1} moeten tegen elkaar strijden in een ‘wie kan het langst stil blijven’ wedstrijd. De eerste die praat,",
+      "SubjectCount": 2,
+      "TakesDrinks": "neemt {0} slokken.",
+      "FinishesGlass": "drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} moet een mop vertellen die niemand in de kamer laat lachen. Als iemand lacht,",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} {1} slokken.",
+      "FinishesGlass": "drinkt {0} zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} moet een compliment geven aan elke speler. Als iemand het compliment niet accepteert,",
+      "SubjectCount": 1,
+      "TakesDrinks": "{0} neemt {1} extra slokken.",
+      "FinishesGlass": "{0} drinkt zijn glas leeg."
+    },
+    {
+      "MissionText": "{0} moet 20 seconden stil staan alsof hij/zij een standbeeld is. Als {0} beweegt,",
+      "SubjectCount": 1,
+      "TakesDrinks": "neemt {0} {1} slokken.",
+      "FinishesGlass": "moet {0} zijn glas leegdrinken."
+    },
+    {
+      "MissionText": "{0} moet een film of serie omschrijven zonder de titel te noemen. Als niemand het raadt binnen 30 seconden,",
+      "SubjectCount": 1,
+      "TakesDrinks": "{0} neemt {1} slokken.",
+      "FinishesGlass": "{0} drinkt zijn glas leeg."
     }
   ],
   "SubMissions": 
@@ -327,6 +513,264 @@
       "Activation": "{0} mag tot nadere orde niet meer naar de WC.",
       "Deactivation": "{0} mag weer naar de WC!",
       "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet nu alles zingen wat hij of zij wil zeggen.",
+      "Deactivation": "{0} hoeft niet meer te zingen.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} en {1} zijn nu elkaars spiegelbeeld. Ze moeten elkaars bewegingen nadoen.",
+      "Deactivation": "{0} en {1} zijn niet meer elkaars spiegelbeeld.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "Iedereen moet nu met zijn of haar niet-dominante hand drinken.",
+      "Deactivation": "Iedereen mag weer met zijn of haar dominante hand drinken.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} moet nu bij elke slok een compliment geven aan iemand.",
+      "Deactivation": "{0} hoeft geen complimenten meer te geven.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} is nu de DJ. Hij of zij mag de muziek kiezen en veranderen.",
+      "Deactivation": "{0} is niet meer de DJ.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} mag alleen nog maar vragen stellen. Elke keer dat hij of zij een statement maakt, wordt bestraft met een slok.",
+      "Deactivation": "{0} mag weer normaal praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet alles wat hij of zij zegt fluisteren.",
+      "Deactivation": "{0} mag weer normaal praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} is nu een robot. Hij of zij moet met een monotone stem praten en elke beweging uitvoeren alsof het geprogrammeerd is.",
+      "Deactivation": "{0} is geen robot meer.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Iedereen moet nu drinken zonder hun glas op de tafel te zetten.",
+      "Deactivation": "Je mag je glas weer op tafel zetten.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} en {1} moeten vanaf nu met elkaar praten alsof ze een soap-scène spelen.",
+      "Deactivation": "{0} en {1} mogen weer normaal praten.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} mag vanaf nu alleen nog maar in liedteksten communiceren.",
+      "Deactivation": "{0} mag weer normaal praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Iedereen moet nu hun glas vasthouden alsof het een delicate kroonjuweel is. Elke keer dat het glas onzorgvuldig wordt vastgepakt, moet er gedronken worden.",
+      "Deactivation": "Je mag je glas weer normaal vasthouden.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} moet alles herhalen wat de vorige spreker heeft gezegd, maar met een dramatische twist.",
+      "Deactivation": "{0} hoeft niets meer te herhalen.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} is nu een fitnesscoach en moet elke keer dat iemand een slok neemt, zeuren over hoe ongezond dat wel niet is.",
+      "Deactivation": "{0} hoeft niet meer de coach te zijn.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} mag geen namen gebruiken. Elke keer dat hij of zij een naam zegt, moet er gedronken worden.",
+      "Deactivation": "{0} mag weer namen gebruiken.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet elke keer 'ding dong' zeggen voordat hij/zij iets zegt.",
+      "Deactivation": "{0} hoeft niet meer 'ding dong' te zeggen.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Vanaf nu moet iedereen drinken alsof ze een koninklijk persoon zijn.",
+      "Deactivation": "Je mag weer normaal drinken.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} en {1} moeten vanaf nu elkaars zinnen afmaken.",
+      "Deactivation": "{0} en {1} mogen weer normaal praten.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "Iedereen moet nu elke slok nemen alsof het hun laatste is. Wie het vergeet,",
+      "Deactivation": "Je mag weer normaal drinken.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} moet een denkbeeldig huisdier introduceren en ermee praten tot de volgende beurt.",
+      "Deactivation": "{0} hoeft niet meer met zijn/haar denkbeeldige huisdier te praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet vanaf nu elke zin afsluiten met 'of misschien niet.'",
+      "Deactivation": "{0} mag weer normaal praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Iedereen moet nu glimlachen. Wie niet blijft lachen,",
+      "Deactivation": "Je mag weer een neutraal gezicht trekken.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0} moet de hele tijd alsof hij/zij een zombie is bewegen en praten.",
+      "Deactivation": "{0} mag weer normaal doen.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} is nu de 'drankpolitie' en moet iedereen die hun glas niet netjes neerzet corrigeren.",
+      "Deactivation": "{0} hoeft niet meer de drankpolitie te zijn.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "Iedereen moet nu drinken alsof ze een ouderwetse piraat zijn, inclusief accenten.",
+      "Deactivation": "Je mag weer normaal drinken.",
+      "SubjectCount": 0
+    },
+    {
+      "Activation": "{0}, {1} en {2} moeten elkaars zinnen afmaken voor de rest van de ronde.",
+      "Deactivation": "{0}, {1} en {2} mogen weer normaal praten.",
+      "SubjectCount": 3
+    },
+    {
+      "Activation": "{0}, {1} en {2} zijn nu een boyband en moeten overal een liedje van maken tot de volgende beurt.",
+      "Deactivation": "{0}, {1} en {2} hoeven niet meer te zingen.",
+      "SubjectCount": 3
+    },
+    {
+      "Activation": "{0}, {1} en {2} moeten bij elke beurt een high-five geven aan elkaar voordat ze drinken.",
+      "Deactivation": "Geen high-fives meer nodig.",
+      "SubjectCount": 3
+    },
+    {
+      "Activation": "Vanaf nu moeten {0}, {1} en {2} alles wat ze zeggen in rijmvorm doen.",
+      "Deactivation": "{0}, {1} en {2} mogen weer normaal praten.",
+      "SubjectCount": 3
+    },
+    {
+      "Activation": "{0} en {1} mogen tot het einde van de ronde alleen praten via gebaren.",
+      "Deactivation": "{0} en {1} mogen weer normaal praten.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} en {1} zijn nu een komisch duo en moeten overal grappen over maken.",
+      "Deactivation": "{0} en {1} mogen weer normaal reageren.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} en {1} moeten alles synchroniseren, zoals drinken en lachen, tot de volgende beurt.",
+      "Deactivation": "{0} en {1} mogen weer onafhankelijk handelen.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} en {1} zijn vanaf nu elkaars schaduw en moeten de ander nadoen.",
+      "Deactivation": "De schaduwrol is voorbij.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} en {1} moeten elkaar bij elke beurt een compliment geven.",
+      "Deactivation": "Complimenten zijn niet meer verplicht.",
+      "SubjectCount": 2
+    },
+    {
+      "Activation": "{0} moet de hele tijd in een rare stem praten tot het einde van de ronde.",
+      "Deactivation": "{0} mag weer normaal praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet alles wat gezegd wordt samenvatten alsof hij/zij een nieuwslezer is.",
+      "Deactivation": "{0} mag weer normaal reageren.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet de rest van de ronde alles met zijn/haar linkerhand doen.",
+      "Deactivation": "{0} mag weer beide handen gebruiken.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet elke keer ‘meow’ zeggen aan het einde van een zin.",
+      "Deactivation": "{0} mag weer normaal praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet altijd eerst toestemming vragen om te praten.",
+      "Deactivation": "{0} mag weer vrij praten.",
+      "SubjectCount": 1
+    },
+    {
+      "Activation": "{0} moet altijd eerst toestemming vragen om te drinken.",
+      "Deactivation": "{0} mag weer vrij drinken.",
+      "SubjectCount": 1
     }
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
