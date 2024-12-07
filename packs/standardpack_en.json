@@ -1,23 +1,23 @@
 {
-  "Title": "Standaard pack",
-  "Description": "Standaard vragenpakket",
-  "Author": "Naamloos",
+  "Standard Pack": "Standaard pack (ENGLISH)",
+  "Standard question pack": "Standaard vragenpakket in English",
+  "Nameless": "Naamloos",
   "AuthorUrl": "https://github.com/Naamloos/",
   "Missions": [
     {
-      "MissionText": "Iedereen met een piercing",
+      "MissionText": "Anyone with a piercing",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
-      "MissionText": "Drink als je ooit eens in de friendzone bent geraakt.",
+      "MissionText": "Drink if you've ever been friend-zoned.",
       "SubjectCount": 0,
-      "TakesDrinks": "De verliezer(s) nemen {0} slokken.",
-      "FinishesGlass": "De verliezer(s) drinken hun glas leeg."
+      "TakesDrinks": "The loser(s) take {0} sips.",
+      "FinishesGlass": "The loser(s) finish their glass."
     },
     {
-      "MissionText": "{0} en {1} nemen samen een selfie en posten deze op social media.",
+      "MissionText": "{0} and {1} take a selfie together and post it on social media.",
       "SubjectCount": 2,
       "TakesDrinks": "",
       "FinishesGlass": ""
@@ -25,8 +25,8 @@
     {
       "MissionText": "Iedereen die een zwart shirt draagt",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} en {1} spelen steen-papier-schaar.",
@@ -37,8 +37,8 @@
     {
       "MissionText": "{0}",
       "SubjectCount": 1,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0}!",
@@ -74,7 +74,7 @@
       "MissionText": "Wijs allemaal tegelijk naar een willekeurig persoon. De meest gekozen speler",
       "SubjectCount": 0,
       "TakesDrinks": "moet {0} slokken nemen.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Alle vrijgezellen",
@@ -91,8 +91,8 @@
     {
       "MissionText": "{0} bedenkt een getal van 1 tot 50. De persoon die er het verste van af zit",
       "SubjectCount": 1,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Russian Roulette! {0} schenkt voor iedereen een shotglas water, maar in één glas zit sterke drank. {0} drinkt zelf niet.",
@@ -121,8 +121,8 @@
     {
       "MissionText": "Noem om de beurt zo veel mogelijk landen op, {0} begint. Wie niks meer kan bedenken",
       "SubjectCount": 1,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Degene die het meeste heeft gedronken",
@@ -163,26 +163,26 @@
     {
       "MissionText": "{0} kiest iemand om mee te duimworstelen. De verliezer",
       "SubjectCount": 1,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Hoedje voor de koning! De verliezer",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Liever zonder armen of zonder benen leven? Iedereen die de minst populaire optie kiest",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} noemt iets wat hij nog nooit gedaan heeft. Iedereen die dit wel al heeft gedaan",
       "SubjectCount": 1,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} en {1} beslissen samen wie er",
@@ -205,14 +205,14 @@
     {
       "MissionText": "De eerste persoon die lacht",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} mag 3 atjes doen of ",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "De slimste speler moet",
@@ -253,62 +253,62 @@
     {
       "MissionText": "Iedereen die ooit een bot heeft gebroken",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} en {1} moeten een armworstelwedstrijd houden. De verliezer",
       "SubjectCount": 2,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen die een huisdier heeft",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} en {1} moeten een danswedstrijd houden. De verliezer",
       "SubjectCount": 2,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen die ooit een boete heeft gekregen",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen met een bril",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} en {1} moeten tegelijkertijd een mop vertellen. De groep kiest wie de grappigste is. De verliezer",
       "SubjectCount": 2,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "De speler die als laatst een berichtje op zijn telefoon heeft gestuurd",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} en {1} moeten zo lang mogelijk elkaar aankijken zonder te lachen. De eerste die lacht",
       "SubjectCount": 2,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen die een tatoeage heeft",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} moet een grap maken. Als niemand lacht",
@@ -319,56 +319,56 @@
     {
       "MissionText": "De persoon die het laatst jarig is geweest",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen met iets roods aan",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen doet een dierengeluid. Wie het stilste is",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "De persoon met de langste achternaam",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} en {1} moeten elkaar bekvechten alsof ze oude mensen in de rij voor de supermarkt zijn. De verliezer",
       "SubjectCount": 2,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen die ooit een bot heeft gebroken",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} moet een schattige bijnaam verzinnen voor {1}. Als de groep het niet schattig genoeg vindt,",
       "SubjectCount": 2,
       "TakesDrinks": "neemt {0} {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "De persoon die het meest recent in slaap is gevallen tijdens een film",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "Iedereen die minstens één kamerplant bezit",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} moet het alfabet achterstevoren opzeggen. Elke fout",
@@ -379,14 +379,14 @@
     {
       "MissionText": "De speler die het meest recent een e-mail heeft verzonden",
       "SubjectCount": 0,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0}, {1} en {2} moeten een korte improvisatiescène spelen als een familie tijdens een ongemakkelijke kerstdiner. De slechtste acteur",
       "SubjectCount": 3,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0}, {1} en {2} moeten een menselijke piramide bouwen. Als het mislukt,",
@@ -409,8 +409,8 @@
     {
       "MissionText": "{0} en {1} moeten tegen elkaar strijden in een ‘wie kan het langst stil blijven’ wedstrijd. De eerste die praat,",
       "SubjectCount": 2,
-      "TakesDrinks": "neemt {0} slokken.",
-      "FinishesGlass": "drinkt zijn glas leeg."
+      "TakesDrinks": "takes {0} sips.",
+      "FinishesGlass": "drinks their glass empty."
     },
     {
       "MissionText": "{0} moet een mop vertellen die niemand in de kamer laat lachen. Als iemand lacht,",
