@@ -205,7 +205,7 @@ function showError(err) {
 }
 
 function doWebsocketCheck() {
-    setInterval(function () {
+    setTimeout(function () {
         // CLOSING or CLOSED
         if (ws.readyState == 2 || ws.readyState == 3) {
             reconnect();
