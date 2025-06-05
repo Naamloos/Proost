@@ -1,4 +1,6 @@
 using FeestSpel.Entities;
+using FeestSpel.Middleware;
+using InertiaCore.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -46,6 +48,18 @@ namespace FeestSpel
 
             services.AddControllers();
             services.AddProgressiveWebApp();
+
+            services.AddInertia(options =>
+            {
+                options.RootView = "~/Pages/App.cshtml";
+            });
+
+            services.AddViteHelper(options =>
+            {
+                options.PublicDirectory = "wwwroot";
+                options.BuildDirectory = "build";
+                options.ManifestFilename = "manifest.json";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +74,8 @@ namespace FeestSpel
                 app.UseExceptionHandler("/Error");
                 app.UseWebOptimizer();
             }
+
+            app.UseMiddleware<InertiaPropsMiddleware>();
 
             app.UseSession();
 
@@ -76,6 +92,8 @@ namespace FeestSpel
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
+
+            app.UseInertia();
         }
     }
 }

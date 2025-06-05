@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Poppins', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #121212;
+  color: white;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-beer-amber text-black font-semibold py-2 px-8 rounded-md shadow-md 
+           hover:bg-beer-gold transition-colors duration-300 text-center;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-beer-amber text-beer-amber font-semibold 
+           py-2 px-8 rounded-md hover:bg-beer-amber/10 transition-colors duration-300 text-center;
+  }
+  
+  .input-field {
+    @apply bg-black/30 border-2 border-white/20 rounded-md px-4 py-2 text-white 
+           placeholder:text-white/50 focus:outline-none focus:border-beer-amber w-full;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-app-purple to-app-pink;
+  }
+}
+
+.beer-bg {
+  background-color: #121212;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}

@@ -151,7 +151,7 @@ namespace FeestSpel.Entities
         public static string GenerateCode()
         {
             string code = "";
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 6; i++)
             {
                 code += bag[new Random().Next(0, bag.Length - 1)];
             }
