@@ -45,9 +45,10 @@ namespace FeestSpel.Entities
             var maxSelection = settings.Players.Count() - (selectedMission.SubjectCount - 1);
 
             // using ToList to get a NEW list without shuffling the original list.
-            var players = settings.Players.ToList().OrderBy(x => rng.Next());
-            // Get correct amount of random players, and shuffle selection
-            var subjects = settings.Players.GetRange(rng.Next(0, maxSelection), selectedMission.SubjectCount).OrderBy(x => rng.Next());
+            // Shuffle the player list so we can easily pick a random selection
+            var players = settings.Players.OrderBy(x => rng.Next()).ToList();
+            // Grab the amount of players that this mission requires
+            var subjects = players.Take(selectedMission.SubjectCount).ToList();
 
             var consequence = "";
 
