@@ -148,15 +148,16 @@ namespace FeestSpel.Entities
         }
 
         const string bag = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        private static readonly Random rng = new Random();
         public static string GenerateCode()
         {
-            string code = "";
-            for (int i = 0; i < 6; i++)
+            char[] code = new char[6];
+            for (int i = 0; i < code.Length; i++)
             {
-                code += bag[new Random().Next(0, bag.Length - 1)];
+                code[i] = bag[rng.Next(0, bag.Length)];
             }
 
-            return code;
+            return new string(code);
         }
     }
 
